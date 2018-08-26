@@ -1,4 +1,3 @@
-
 const got = require('got')
 const turf = require('@turf/turf')
 const R = require('ramda')
