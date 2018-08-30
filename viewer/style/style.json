@@ -1,0 +1,119 @@
+{
+    "version": 8,
+    "name": "data",
+    "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
+    "sprite": "http://localhost:8000/sprite/mycelium",
+    "sources": {    
+        "webmapper": {
+            "type": "vector",
+            "url": "http://localhost:8000/style/tile.json"
+        },
+        "amsterdam":{
+            "type": "geojson",
+            "data": "http://localhost:8000/test-distances.geojson"
+        }
+    },
+    "layers": [
+        { 
+            "id": "background",
+            "type": "background",
+            "paint":{
+                "background-color": "#fff"
+            }
+        },
+{
+    "id": "terrein_z0",
+    "source": "webmapper",
+    "source-layer": "terrein",
+    "type": "fill",
+    "minzoom": 0,
+    "maxzoom": 22,
+    "paint": {
+        "fill-color": [
+            "match",
+            [
+                "get",
+                "typelandgebruik"
+            ],
+            "akkerland",
+            "#d5e5cb",
+            "basaltblokken, steenglooiing",
+            "#cccccc",
+            "boomgaard",
+            "#516559",
+            "boomkwekerij",
+            "#516559",
+            "braakliggend",
+            "#cec88a",
+            "dodenakker",
+            "#dcc7ac",
+            "dodenakker met bos",
+            "#b09f85",
+            "duin",
+            "#ebe2d1",
+            "fruitkwekerij",
+            "#7d3a5b",
+            "grasland",
+            "#c1daaf",
+            "heide",
+            "#cdb3d6",
+            "populieren",
+            "#422543",
+            "overig",
+            "#fbfbfb",
+            "zand",
+            "#ebe2d1",
+            "spoorbaanlichaam",
+            "#f7f7f7",
+            "bos: gemengd bos",
+            "#426c3b",
+            "bos: griend",
+            "#426c3b",
+            "bos: loofbos",
+            "#426c3b",
+            "bos: naaldbos",
+            "#426c3b",
+            "bos",
+            "#426c3b",
+            "rgba(0,0,0,0)"
+        ],
+        "fill-outline-color": "#fff"
+    }
+},
+        {
+            "id": "water",
+            "source": "webmapper",
+            "source-layer": "water",
+            "type": "fill",
+            "paint": {
+                "fill-color": "rgba(45,67,95,0.1)",
+                "fill-opacity": 0.8,
+                "fill-outline-color": "rgba(0,0,255,0)"
+            }
+        },
+        {
+            "id": "wegvlakken_test",
+            "type": "line",
+            "source": "amsterdam",
+            "minzoom": 12,
+            "paint": {
+                "line-color": "#000",
+                "line-width": ["interpolate",
+                    ["cubic-bezier",
+                        0.42,
+                        0,
+                        0.5,
+                        0.7],
+                ["get", "distance"],
+                0, 10,
+               
+                1000, 0
+            ],
+             "line-pattern": "mycelium_3"
+            },
+            "layout":{
+                "line-cap": "round"
+            }
+        }
+    ]
+}

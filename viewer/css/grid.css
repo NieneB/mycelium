@@ -1,0 +1,122 @@
+
+
+.main-container {
+    background-color: rgba(255,255,255,0.9);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:  1fr ;
+    grid-template-areas:
+    "map map carousel";
+    overflow: hidden;
+    width:100%;
+    height:90%;
+    border: 0;
+    margin: 0;
+    padding: 5% 0 5% 0;
+    position: absolute;
+    overflow: hidden;
+}
+/* 
+.map{
+    grid-area: map
+} */
+
+.carousel {
+    grid-area: carousel;
+    width: 150%;
+    height: 100%;
+    overflow:hidden;
+    display: grid;
+    position: inherit;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr ;
+    grid-template-areas:
+    ". main_foto main_foto main_foto ."
+    "pp_foto p_foto foto n_foto nn_foto";
+    grid-column-gap:5px;
+    /* justify-items:  center; */
+    align-items: center;
+    justify-content: center;
+    left: -25%;
+    z-index: 4;
+    background-color:red;
+   
+}
+.main_foto{
+    grid-area:main_foto;
+}
+.top_pp {
+    grid-area: pp_foto;
+    }
+.top_p {
+    grid-area: p_foto;
+    }
+.top {
+    grid-area: foto;
+ }
+.top_n {
+    grid-area: n_foto;
+}
+.top_nn {
+    grid-area: nn_foto;
+    }
+
+/* .bottom { 
+    grid-area: map;
+    cursor:move;
+    z-index:-200;
+} */
+.panel{
+    height:100px;
+    float:left;
+    left:0;
+    position: relative;
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-size:   contain;
+    background-position: center center; 
+    list-style:none;
+     -moz-animation:carousel 30s infinite;
+    -webkit-animation:carousel 30s infinite;
+    animation:carousel 30s infinite;
+    z-index: 3;
+
+}
+.main_foto{
+     height:100%;
+      float:left;
+    left:0;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size:   contain;
+    background-position: center center; 
+}
+.panel:hover{
+    opacity: 1;
+    transition: 2s;
+}
+
+.active{
+    opacity: 1;
+
+}
+/* 
+@keyframes carousel{
+    0%    { left:0; }
+    11%   { left:0; }
+    12.5% { left:-25%; }
+    23.5% { left:-25%; }
+    25%   { left:-50%; }
+    36%   { left:-50%; }
+    37.5% { left:-75%; }
+    48.5% { left:-75%; }
+    50%   { left:-75%; }
+    61%   { left:-100%; }
+    62.5% { left:-100%; }
+    73.5% { left:-75%; }
+    75%   { left:-75%; }
+    86%   { left:-50%; }
+    87.5% { left:-50%; }
+    98.5% { left:-0%; }
+    100%  { left:0; }
+} */
