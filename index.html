@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>View a fullscreen map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibnlwbGxhYnMiLCJhIjoiSFVmbFM0YyJ9.sl0CRaO71he1XMf_362FZQ'
+
+let distance = 0
+let maxDistance = 2800
+
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/light-v9',
+  center: [
+    4.9126,
+    52.3673],
+  zoom: 13
+})
+
+const lineStyle = (meters) => ['interpolate',
+  ['cubic-bezier',
+    0.42,
+    0,
+    0.5,
+    0.7],
+  ['get', 'distance'],
+  0, 5,
+  meters, 0
+]
+
+map.on('load', function () {
+  fetch('test-distances.geojson')
+    .then(function (response) {
+      return response.json()
+    }).then(function (geojson) {
+       map.addSource('geojson', {
+        type: 'geojson',
+        data: geojson
+      })
+
+      map.addLayer({
+        id: 'geojson',
+        type: 'line',
+        source: 'geojson',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#ed601a',
+          'line-opacity': 0.6,
+          'line-width': 0
+        }
+      })
+
+      //startAnimation()
+
+    }).catch(function (ex) {
+      console.log('parsing failed', ex)
+    })
+})
+
+map.addControl(new mapboxgl.FullscreenControl())
+
+function step () {
+  distance = distance += 5
+
+  map.setPaintProperty('geojson', 'line-width', lineStyle(distance))
+
+  if (distance <= maxDistance) {
+    window.requestAnimationFrame(step)
+  }
+}
+
+function startAnimation () {
+  distance = 0
+  window.requestAnimationFrame(step)
+}
+
+</script>
+
+</body>
+</html>
