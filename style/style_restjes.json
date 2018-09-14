@@ -1,0 +1,350 @@
+ {
+            "id": "highway-path",
+            "type": "line",
+            "source": "webmapper",
+            "source-layer": "roads",
+            "minzoom": 15,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "$type",
+                    "LineString"
+                ],    
+                [
+                    "has",
+                    "name"
+                ],
+                [
+                    "!=",
+                    "name",
+                    ""
+                ],
+                [
+                    "in",
+                    "highway",
+                    "path",
+                    "pedestrian",
+                    "cycleway",
+                    "steps",
+                    "bridleway",
+                    "corridor"
+                ]
+            ],
+            "paint": {
+                "line-color": "#000",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            15,
+                            1.2
+                        ],
+                        [
+                            20,
+                            4
+                        ]
+                    ]
+                },
+                "line-pattern": "mycelium_3"
+            }
+        },
+        {
+            "id": "highway-minor-minor",
+            "type": "line",
+            "source": "webmapper",
+            "source-layer": "roads",
+            "minzoom": 14,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "$type",
+                    "LineString"
+                ],
+                [
+                    "==",
+                    "name",
+                    ""
+                ],
+                [
+                    "in",
+                    "highway",
+                    "minor",
+                    "unclassified",
+                    "residential",
+                    "living_street",
+                    "road",
+                    "service",
+                    "track"
+                ]
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 0.9,
+                    "stops": [
+                        [
+                            13.5,
+                            0
+                        ],
+                        [
+                            14,
+3
+                        ],
+                        [
+                            20,
+                           10
+                        ]
+                    ]
+                },
+                "line-pattern": "mycelium_3"
+            }
+        },
+        {
+            "id": "highway-minor",
+            "type": "line",
+            "source": "webmapper",
+            "source-layer": "roads",
+            "minzoom": 13,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "$type",
+                    "LineString"
+                ],
+                [
+                    "has",
+                    "name"
+                ],
+                [
+                    "!=",
+                    "name",
+                    ""
+                ],
+                [
+                    "in",
+                    "highway",
+                    "minor",
+                    "unclassified",
+                    "residential",
+                    "living_street",
+                    "road",
+                    "service",
+                    "track"
+                ]
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            13.5,
+                            0
+                        ],
+                        [
+                            14,
+                            5
+                        ],
+                        [
+                            20,
+                            14
+                        ]
+                    ]
+                },
+                "line-pattern": "mycelium_3"
+            }
+        },
+        {
+            "id": "highway-secondary-tertiary",
+            "type": "line",
+            "source": "webmapper",
+            "source-layer": "roads",
+            "minzoom": 9.5,
+            "filter": [
+                "in",
+                "highway",
+                "secondary",
+                "secondary_link",
+                "tertiary",
+                "tertiary_link"
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            8,
+                            2
+                        ],
+                        [
+                            20,
+                            15
+                        ]
+                    ]
+                },
+                "line-pattern": "mycelium_3"
+            }
+        },
+        {
+            "id": "highway-primary",
+            "type": "line",
+            "source": "webmapper",
+            "source-layer": "roads",
+            "minzoom": 8,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "$type",
+                    "LineString"
+                ],
+                [
+                    "in",
+                    "highway",
+                    "primary",
+                    "primary_link"
+                ]
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            8.5,
+                            0
+                        ],
+                        [
+                            9,
+                            2
+                        ],
+                        [
+                            20,
+                            22
+                        ]
+                    ]
+                },
+                "line-pattern": "mycelium_3"
+            }
+        },
+        {
+            "id": "highway-trunk",
+            "type": "line",
+            "source": "webmapper",
+            "source-layer": "roads",
+            "minzoom": 7.5,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "$type",
+                    "LineString"
+                ],
+                [
+                    "in",
+                    "highway",
+                    "trunk",
+                    "trunk_link"
+                ]
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            5
+                        ],
+                        [
+                            20,
+                            22
+                        ]
+                    ]
+                },
+                "line-pattern": "mycelium_3"
+            }
+        },
+        {
+            "id": "highway-motorway",
+            "type": "line",
+            "source": "webmapper",
+            "source-layer": "roads",
+            "minzoom": 5,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "$type",
+                    "LineString"
+                ],
+                [
+                    "in",
+                    "highway",
+2
+                ]
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            2
+                        ],
+                        [
+                            20,
+                            22
+                        ]
+                    ]
+                },
+                "line-pattern": "mycelium_3"
+            }
+        }
+
+                        ["-", 3, ["/" ,["get", "Distance matrix_Distance"], 900]] ,

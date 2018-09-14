@@ -1,0 +1,117 @@
+{
+    "version": 8,
+    "name": "data",
+    "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
+    "sprite": "http://localhost:8000/sprite/mycelium",
+    "sources": {    
+        "webmapper": {
+            "type": "vector",
+            "url": "http://localhost:8000/style/tile.json"
+        },
+        "punten":{
+            "type": "geojson",
+             "data": "http://localhost:8000/test-points.geojson"
+        }
+    },
+    "layers": [
+        { 
+            "id": "background",
+            "type": "background",
+            "paint":{
+                "background-color": "#eddcb0"
+            }
+        },
+{
+    "id": "terrein_z0",
+    "source": "webmapper",
+    "source-layer": "terrein",
+    "type": "fill",
+    "minzoom": 0,
+    "maxzoom": 22,
+    "paint": {
+        "fill-color": [
+            "match",
+            [
+                "get",
+                "typelandgebruik"
+            ],
+            "akkerland",
+            "#ecdaaa",
+            "basaltblokken, steenglooiing",
+            "#cccccc",
+            "boomgaard",
+            "#cec88a",
+            "boomkwekerij",
+            "#cec88a",
+            "braakliggend",
+            "#cccccc",
+            "dodenakker",
+            "#cccccc",
+            "dodenakker met bos",
+            "#cec88a",
+            "duin",
+            "#e5cd8b",
+            "fruitkwekerij",
+            "#cccccc",
+            "grasland",
+            "#e5cd8b",
+            "heide",
+            "#cccccc",
+            "populieren",
+            "#cccccc",
+            "overig",
+            "#ecdaaa",
+            "zand",
+            "#ecdaaa",
+            "spoorbaanlichaam",
+            "#ecdaaa",
+            "bos: gemengd bos",
+            "#e5cd8b",
+            "bos: griend",
+            "#e5cd8b",
+            "bos: loofbos",
+            "#e5cd8b",
+            "bos: naaldbos",
+            "#e5cd8b",
+            "bos",
+            "#e5cd8b",
+            "rgba(0,0,0,0)"
+        ],
+        "fill-outline-color": "rgba(0,0,0,0)"
+    }
+},
+        {
+            "id": "water",
+            "source": "webmapper",
+            "source-layer": "water",
+            "type": "fill",
+            "paint": {
+                "fill-color": "#f7eeda",
+                "fill-opacity": 1,
+                "fill-outline-color": "rgba(0,0,255,0)"
+            }
+        },
+        {
+            "id": "punten",
+            "source": "punten",
+            "type": "circle",
+            "paint":{
+                "circle-color" :[
+                    "match",
+                    [
+                        "get",
+                        "thema"
+                    ],
+                    "onverwacht",
+                    "#000eee",
+                    "ontmoeting",
+                    "#ee00ee",
+                    "dier",
+                    "#eee000",
+                    "#000000"
+                ],
+                "circle-radius": 5
+            }
+        }
+    ]
+}
