@@ -1,1 +1,0 @@
-console.error("Error: Cannot find module '/home/niene/Documents/00_Projecten/Paradijs_in_de_Polder/mycelium/main.js' from '/home/niene/Documents/00_Projecten/Paradijs_in_de_Polder/mycelium'");
