@@ -13,6 +13,7 @@ const bufferSize = 1000 // meters
 const numRandomPoints = 10
 const numRandomLines = 5
 const bufferSteps = 10 // see http://turfjs.org/docs#buffer
+const sleepMs = 700 // sleep between Mapbox requests, in ms
 
 const name = path.basename(__filename)
 
@@ -114,7 +115,7 @@ const lines = R.flatten(geojson.features.map((feature) => {
     ...routesBetweenRandomPointsInBuffer(buffered),
     ...routesToRandomPointsInBuffer(feature, buffered)
   ].map(R.curry(lineStringFeatureWithProperties)(feature))
-})).slice(0, 20)
+}))
 
 const getDirectionsUrl = (from, to) => `https://api.mapbox.com/directions/v5/mapbox/walking/${from.join(',')};${to.join(',')}?steps=false&alternatives=true&access_token=${accessToken}&geometries=geojson`
 const getRoutesFromResponse = (response) => response.body.routes.map((route) => route.geometry)[0]
@@ -122,19 +123,35 @@ const fetchUrl = async (from, to) => got(getDirectionsUrl(from, to), {
   json: true
 })
 
-;(async () => {
-  const routes = await Promise.all(lines.map(async (line) => {
-    const points = line.geometry.coordinates
-    const response = await fetchUrl(points[0], points[1])
-    return {
-      type: 'Feature',
-      properties: line.properties,
-      geometry: getRoutesFromResponse(response)
-    }
-  }))
+const routes = []
 
-  console.log(JSON.stringify({
-    type: 'FeatureCollection',
-    features: routes
-  }, null, 2))
-})()
+function computeAllRoutes(lines, sleep) {
+  return lines.reduce((promise, line, index) => {
+    return promise
+      .then((result) => {
+        console.error(`Computing route ${index + 1}/${lines.length} (sleeping ${sleep}ms)`)
+        const points = line.geometry.coordinates
+
+        return fetchUrl(points[0], points[1])
+          .then((response) => new Promise((resolve, reject) => {
+            setTimeout(() => resolve(response), sleep)
+          }))
+          .then((response) => {
+            routes.push({
+              type: 'Feature',
+              properties: line.properties,
+              geometry: getRoutesFromResponse(response)
+            })
+          })
+      })
+      .catch(console.error)
+  }, Promise.resolve())
+}
+
+computeAllRoutes(lines, sleepMs)
+  .then(() => {
+    console.log(JSON.stringify({
+      type: 'FeatureCollection',
+      features: routes
+    }, null, 2))
+  })

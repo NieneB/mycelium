@@ -11,6 +11,7 @@
   "dependencies": {
     "@turf/turf": "^5.1.6",
     "got": "^9.1.0",
+    "minimist": "^1.2.0",
     "ramda": "^0.25.0"
   }
 }

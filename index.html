@@ -17,11 +17,11 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibnlwbGxhYnMiLCJhIjoiSFVmbFM0YyJ9.sl0CRaO71he1XMf_362FZQ'
 
 let distance = 0
-let maxDistance = 2800
+let maxDistance = 1000
 
 var map = new mapboxgl.Map({
   container: 'map',
-  style: './style/style.json',
+  style: 'style/style.json',
   center: [
     4.9126,
     52.3673],
@@ -40,7 +40,7 @@ const lineStyle = (meters) => ['interpolate',
 ]
 
 map.on('load', function () {
-  fetch('test-distances.geojson')
+  fetch('./geojson/mycelium-segmentized.geojson')
     .then(function (response) {
       return response.json()
     }).then(function (geojson) {
@@ -60,8 +60,8 @@ map.on('load', function () {
         paint: {
           'line-color': '#ed601a',
           'line-opacity': 0.6,
-          'line-width': 0,
-          'line-pattern': "mycelium_3"
+          'line-width': 2,
+          // 'line-pattern': "mycelium_3"
         }
       })
 
@@ -89,7 +89,7 @@ function startAnimation () {
   window.requestAnimationFrame(step)
 }
   // Punten met themas toevoegen
-  
+
   // When a click event occurs on a feature in the places layer, open a popup at the
   // location of the feature, with description HTML from its properties.
   map.on('click', 'punten', function (e) {

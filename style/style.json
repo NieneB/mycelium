@@ -2,19 +2,19 @@
     "version": 8,
     "name": "data",
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "http://localhost:8000/sprite/mycelium",
-    "sources": {    
+    "sprite": "http://localhost:8080/sprite/mycelium",
+    "sources": {
         "webmapper": {
             "type": "vector",
-            "url": "http://localhost:8000/style/tile.json"
+            "url": "http://localhost:8080/style/tile.json"
         },
         "punten":{
             "type": "geojson",
-             "data": "http://localhost:8000/test-points.geojson"
+             "data": "http://localhost:8080/geojson/points.geojson"
         }
     },
     "layers": [
-        { 
+        {
             "id": "background",
             "type": "background",
             "paint":{
