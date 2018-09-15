@@ -1,0 +1,161 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Bloemenbuurt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.91138219833374,
+          52.39104082662826
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Tuinen van West"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.779953956604004,
+          52.369337155572836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Amstelpark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.894323348999023,
+          52.32961554379344
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Rivierenbuurt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.899086952209473,
+          52.35050644411929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Slatuinen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.862598180770874,
+          52.37039835551395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Ontdekkingsreizigersbuurt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.853124618530273,
+          52.37182634976541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Machine Wilderness"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.954587221145629,
+          52.35635176870885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Artis/Entrepotdok"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.913957118988037,
+          52.368872053736126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Mediamatic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.912637472152709,
+          52.376444088509885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Sarphatipark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.896335005760193,
+          52.354238497864685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Bloei & Groei"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.9423134326934814,
+          52.322583047816494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Waterland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.033175945281982,
+          52.432414566210944
+        ]
+      }
+    }
+  ]
+}
