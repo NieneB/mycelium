@@ -8,9 +8,9 @@
             "type": "vector",
             "url": "http://localhost:8000/style/tile.json"
         },
-        "amsterdam":{
+        "punten":{
             "type": "geojson",
-            "data": "http://localhost:8000/test-distances.geojson"
+             "data": "http://localhost:8000/test-points.geojson"
         }
     },
     "layers": [
@@ -18,7 +18,7 @@
             "id": "background",
             "type": "background",
             "paint":{
-                "background-color": "#fff"
+                "background-color": "#eddcb0"
             }
         },
 {
@@ -36,48 +36,48 @@
                 "typelandgebruik"
             ],
             "akkerland",
-            "#d5e5cb",
+            "#ecdaaa",
             "basaltblokken, steenglooiing",
             "#cccccc",
             "boomgaard",
-            "#516559",
-            "boomkwekerij",
-            "#516559",
-            "braakliggend",
             "#cec88a",
+            "boomkwekerij",
+            "#cec88a",
+            "braakliggend",
+            "#cccccc",
             "dodenakker",
-            "#dcc7ac",
+            "#cccccc",
             "dodenakker met bos",
-            "#b09f85",
+            "#cec88a",
             "duin",
-            "#ebe2d1",
+            "#e5cd8b",
             "fruitkwekerij",
-            "#7d3a5b",
+            "#cccccc",
             "grasland",
-            "#c1daaf",
+            "#e5cd8b",
             "heide",
-            "#cdb3d6",
+            "#cccccc",
             "populieren",
-            "#422543",
+            "#cccccc",
             "overig",
-            "#fbfbfb",
+            "#ecdaaa",
             "zand",
-            "#ebe2d1",
+            "#ecdaaa",
             "spoorbaanlichaam",
-            "#f7f7f7",
+            "#ecdaaa",
             "bos: gemengd bos",
-            "#426c3b",
+            "#e5cd8b",
             "bos: griend",
-            "#426c3b",
+            "#e5cd8b",
             "bos: loofbos",
-            "#426c3b",
+            "#e5cd8b",
             "bos: naaldbos",
-            "#426c3b",
+            "#e5cd8b",
             "bos",
-            "#426c3b",
+            "#e5cd8b",
             "rgba(0,0,0,0)"
         ],
-        "fill-outline-color": "#fff"
+        "fill-outline-color": "rgba(0,0,0,0)"
     }
 },
         {
@@ -86,33 +86,31 @@
             "source-layer": "water",
             "type": "fill",
             "paint": {
-                "fill-color": "rgba(45,67,95,0.1)",
-                "fill-opacity": 0.8,
+                "fill-color": "#f7eeda",
+                "fill-opacity": 1,
                 "fill-outline-color": "rgba(0,0,255,0)"
             }
         },
         {
-            "id": "wegvlakken_test",
-            "type": "line",
-            "source": "amsterdam",
-            "minzoom": 12,
-            "paint": {
-                "line-color": "#000",
-                "line-width": ["interpolate",
-                    ["cubic-bezier",
-                        0.42,
-                        0,
-                        0.5,
-                        0.7],
-                ["get", "distance"],
-                0, 10,
-               
-                1000, 0
-            ],
-             "line-pattern": "mycelium_3"
-            },
-            "layout":{
-                "line-cap": "round"
+            "id": "punten",
+            "source": "punten",
+            "type": "circle",
+            "paint":{
+                "circle-color" :[
+                    "match",
+                    [
+                        "get",
+                        "thema"
+                    ],
+                    "onverwacht",
+                    "#000eee",
+                    "ontmoeting",
+                    "#ee00ee",
+                    "dier",
+                    "#eee000",
+                    "#000000"
+                ],
+                "circle-radius": 5
             }
         }
     ]
