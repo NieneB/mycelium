@@ -2,15 +2,15 @@
     "version": 8,
     "name": "data",
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "https://github.com/NieneB/mycelium/blob/master/sprite/sprite",
+    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite",
     "sources": {
         "pdok": {
             "type": "vector",
-            "url": "https://github.com/NieneB/mycelium/blob/master/style/tile.json"
+            "url": "https://raw.githubusercontent.com/NieneB/mycelium/master/style/tile.json"
         },
         "punten":{
             "type": "geojson",
-             "data": "https://github.com/NieneB/mycelium/blob/master/geojson/points.geojson"
+             "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/points.geojson"
         }
     },
     "layers": [
