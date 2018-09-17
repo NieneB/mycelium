@@ -4,6 +4,13 @@
     "pixelRatio": 1,
     "width": 626,
     "x": 0,
+    "y": 460
+  },
+  "water_1": {
+    "height": 460,
+    "pixelRatio": 1,
+    "width": 520,
+    "x": 0,
     "y": 0
   }
 }

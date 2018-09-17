@@ -4,7 +4,7 @@
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
     "sprite": "http://localhost:8080/sprite/sprite",
     "sources": {
-        "webmapper": {
+        "pdok": {
             "type": "vector",
             "url": "http://localhost:8080/style/tile.json"
         },
@@ -18,59 +18,37 @@
             "id": "background",
             "type": "background",
             "paint":{
-                "background-pattern": "ruitjes_1"
+                "background-pattern": "ruitjes_1",
+                "background-opacity": 0.5
             }
         },
-                {
-                    "id": "terrein_lijn",
-                    "source": "webmapper",
-                    "source-layer": "terrein",
-                    "type": "line",
-                    "filter": ["in", "typelandgebruik",
-                        "akkerland",
-                        "boomgaard",
-                        "boomkwekerij",
-                        "dodenakker",
-                        "dodenakker met bos",
-                        "fruitkwekerij",
-                        "grasland",
-                        "populieren",
-                        "bos: gemengd bos",
-                        "bos: griend",
-                        "bos: loofbos",
-                        "bos: naaldbos",
-                        "bos"
-                    ],
-                    "minzoom": 0,
-                    "maxzoom": 22,
-                    "paint": {
-                        "line-color": "#4e6618",
-                      "line-width": 3,
-                       "line-blur": 3
-                    }
-                },
+        {
+            "id": "terrein_lijn",
+            "source": "pdok",
+            "source-layer": "terrain",
+            "type": "line",
+            "filter": ["in", "lod1",
+                "natural"
+            ],
+            "minzoom": 0,
+            "maxzoom": 22,
+            "paint": {
+                "line-color": "#4e6618",
+                "line-width": 2,
+                "line-blur": 1,
+                "line-offset": 0
+            }
+        },
         {
             "id": "terrein_z0",
-            "source": "webmapper",
-            "source-layer": "terrein",
+            "source": "pdok",
+            "source-layer": "terrain",
             "type": "fill",
-            "filter": [
-                "in",
-                "typelandgebruik",
-                "akkerland",
-                "boomgaard",
-                "boomkwekerij",
-                "dodenakker",
-                "dodenakker met bos",
-                "fruitkwekerij",
-                "grasland",
-                "populieren",
-                "bos: gemengd bos",
-                "bos: griend",
-                "bos: loofbos",
-                "bos: naaldbos",
-                "bos"
-            ],
+           "filter": [
+            "in",
+            "lod1",
+            "natural"
+        ],
             "minzoom": 0,
             "maxzoom": 22,
             "paint": {
@@ -81,42 +59,36 @@
         },
         {
             "id": "water-shadow",
-            "source": "webmapper",
+            "source": "pdok",
             "source-layer": "water",
             "type": "line",
             "paint": {
                 "line-color": "#535353",
-                "line-width": 4,
+                "line-width": 2,
                 "line-offset": -1,
-                "line-blur": 3
+                "line-blur": 2
             }
         },
         {
             "id": "water",
-            "source": "webmapper",
+            "source": "pdok",
             "source-layer": "water",
             "type": "fill",
+            "layout": {
+                "visibility": "visible"
+            },
             "paint": {
-                "fill-color": "#dcdcdc",
-                "fill-opacity": 1,
-                "fill-outline-color": "rgba(0,0,255,0)"
-            }
-        },
-        {
-            "id": "water-line",
-            "source": "webmapper",
-            "source-layer": "water",
-            "type": "line",
-            "paint": {
-                "line-color": "#dcdcdc",
-                "line-width": 1,
-                "line-offset": 2
+                "fill-pattern": "water_1",
+                "fill-opacity": 0.9
             }
         },
         {
             "id": "punten",
             "source": "punten",
             "type": "circle",
+            "layout": {
+                "visibility": "none"
+            },
             "paint":{
                 "circle-color" :[
                     "match",
