@@ -25,7 +25,8 @@ var map = new mapboxgl.Map({
   center: [
     4.9126,
     52.3673],
-  zoom: 13
+  zoom: 13,
+  hash: true
 })
 
 const lineStyle = (meters) => ['interpolate',
@@ -35,7 +36,7 @@ const lineStyle = (meters) => ['interpolate',
     0.5,
     0.7],
   ['get', 'distance'],
-  0, 10,
+  0, 7.5,
   meters, 0
 ]
 
@@ -48,6 +49,22 @@ map.on('load', function () {
         type: 'geojson',
         data: geojson
       })
+       map.addLayer({
+        id: 'geojson-shadow',
+        type: 'line',
+        source: 'geojson',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          "line-translate": [3,3],
+          'line-color': '#535353',
+          'line-opacity': 0.2,
+          'line-width': 4,
+          "line-blur": 5
+        }
+      }, "punten")
 
       map.addLayer({
         id: 'geojson',
@@ -58,13 +75,13 @@ map.on('load', function () {
           'line-cap': 'round'
         },
         paint: {
-          'line-color': '#000',
-          'line-opacity': 0.6,
-          'line-width': 10,
-          "line-blur": 5
-          // 'line-pattern': "mycelium_3"
-        }
-      })
+          'line-color': '#ee0000',
+          'line-opacity': 0.8,
+          'line-width': 1,
+          "line-blur": 5,
+           "line-pattern": "lijn_4"
+                   }
+      }, "punten")
 
       startAnimation()
 
@@ -78,6 +95,7 @@ map.addControl(new mapboxgl.FullscreenControl())
 function step () {
   distance = distance += 25
 
+  map.setPaintProperty('geojson-shadow', 'line-width', lineStyle(distance))
   map.setPaintProperty('geojson', 'line-width', lineStyle(distance))
 
   if (distance <= maxDistance) {

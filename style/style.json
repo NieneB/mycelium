@@ -2,15 +2,20 @@
     "version": 8,
     "name": "data",
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite",
+    "sprite": "http://localhost:8080/sprite/sprite_4",
     "sources": {
         "pdok": {
             "type": "vector",
-            "url": "https://raw.githubusercontent.com/NieneB/mycelium/master/style/tile.json"
+            "scheme": "xyz",
+            "tiles":["http://geodata.nationaalgeoregister.nl/beta/topotiles/{z}/{x}/{y}.pbf"]
         },
         "punten":{
             "type": "geojson",
              "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/points.geojson"
+        },
+        "geojson_locaties": {
+            "type": "geojson",
+            "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/locations.geojson"
         }
     },
     "layers": [
@@ -23,6 +28,18 @@
             }
         },
         {
+            "id": "cirles",
+            "source": "geojson_locaties",
+            "type": "circle",
+            "minzoom": 0,
+            "maxzoom": 22,
+            "paint": {
+               "circle-color": "#553333",
+               "circle-radius": 200,
+               "circle-opacity": 0.1
+            }
+        },
+        {
             "id": "terrein_lijn",
             "source": "pdok",
             "source-layer": "terrain",
@@ -32,11 +49,50 @@
             ],
             "minzoom": 0,
             "maxzoom": 22,
+            "layout": {
+                "visibility": "none"
+            },
             "paint": {
                 "line-color": "#4e6618",
                 "line-width": 2,
                 "line-blur": 1,
-                "line-offset": 0
+                "line-offset": 0,
+                "line-opacity": 0
+            }
+        },
+        {
+            "id": "terrain-shadow",
+            "source": "pdok",
+            "source-layer": "terrain",
+            "type": "line",
+            "filter": [
+                "in",
+                "lod1",
+                "natural"
+            ],
+            "paint": {
+                "line-color": "#535353",
+                "line-width": 0,
+                "line-translate": [
+                    1,
+                    2
+                ],
+                "line-blur": 3
+            }
+        },
+        {
+            "id": "water-shadow",
+            "source": "pdok",
+            "source-layer": "water",
+            "type": "line",
+            "paint": {
+                "line-color": "#535353",
+                "line-width": 0,
+                "line-translate": [
+                    2,
+                    2
+                ],
+                "line-blur": 3
             }
         },
         {
@@ -49,26 +105,17 @@
             "lod1",
             "natural"
         ],
+        "layout": {
+            "visibility": "none"
+        },
             "minzoom": 0,
             "maxzoom": 22,
             "paint": {
-                "fill-color":  "#8ab42a",
-                "fill-outline-color": "rgba(0,0,0,0)",
-                "fill-opacity": 0.95
+                "fill-pattern":  "structure_1",
+                "fill-opacity": 1
             }
         },
-        {
-            "id": "water-shadow",
-            "source": "pdok",
-            "source-layer": "water",
-            "type": "line",
-            "paint": {
-                "line-color": "#535353",
-                "line-width": 2,
-                "line-offset": -1,
-                "line-blur": 2
-            }
-        },
+
         {
             "id": "water",
             "source": "pdok",
@@ -78,34 +125,46 @@
                 "visibility": "visible"
             },
             "paint": {
-                "fill-pattern": "water_1",
-                "fill-opacity": 0.9
+                "fill-pattern": "black_1",
+                "fill-opacity": 1
             }
         },
         {
             "id": "punten",
             "source": "punten",
-            "type": "circle",
+            "type": "symbol",
+                        "filter": [
+                            "!=",
+                            "thema",
+                            "ontmoeting"
+                        ],
+                        
             "layout": {
-                "visibility": "none"
+                "visibility": "visible",
+                "icon-image": "icon_1",
+                "icon-size": 0.7,
+                "icon-allow-overlap": true
             },
-            "paint":{
-                "circle-color" :[
-                    "match",
-                    [
-                        "get",
-                        "thema"
-                    ],
-                    "onverwacht",
-                    "#000eee",
-                    "ontmoeting",
-                    "#ee00ee",
-                    "dier",
-                    "#eee000",
-                    "#000000"
-                ],
-                "circle-radius": 5
+            "paint": {
+                "icon-opacity": 0.8
+
+            }
+        },
+        {
+            "id": "punten_@",
+            "source": "punten",
+            "type": "symbol",
+            "filter": ["==","thema","ontmoeting"],
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "icon_2",
+                "icon-size": 0.7,
+                "icon-allow-overlap": true
+            },
+            "paint": {
+                "icon-opacity": 0.8
             }
         }
+       
     ]
 }
