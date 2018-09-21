@@ -6,7 +6,8 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
+    <link href="mabox-popup.css" rel="stylesheet">
+  <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
@@ -14,7 +15,7 @@
 <body>
 <div id='map'></div>
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoibnlwbGxhYnMiLCJhIjoiSFVmbFM0YyJ9.sl0CRaO71he1XMf_362FZQ'
+// mapboxgl.accessToken = 'pk.eyJ1IjoibnlwbGxhYnMiLCJhIjoiSFVmbFM0YyJ9.sl0CRaO71he1XMf_362FZQ'
 
 let distance = 0
 let maxDistance = 1000
@@ -25,7 +26,8 @@ var map = new mapboxgl.Map({
   center: [
     4.9126,
     52.3673],
-  zoom: 13
+  zoom: 13,
+  hash: true
 })
 
 const lineStyle = (meters) => ['interpolate',
@@ -35,7 +37,7 @@ const lineStyle = (meters) => ['interpolate',
     0.5,
     0.7],
   ['get', 'distance'],
-  0, 5,
+  0, 7.5,
   meters, 0
 ]
 
@@ -48,6 +50,22 @@ map.on('load', function () {
         type: 'geojson',
         data: geojson
       })
+       map.addLayer({
+        id: 'geojson-shadow',
+        type: 'line',
+        source: 'geojson',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          "line-translate": [3,3],
+          'line-color': '#535353',
+          'line-opacity': 0.2,
+          'line-width': 4,
+          "line-blur": 5
+        }
+      }, "punten")
 
       map.addLayer({
         id: 'geojson',
@@ -58,15 +76,17 @@ map.on('load', function () {
           'line-cap': 'round'
         },
         paint: {
-          'line-color': '#ed601a',
-          'line-opacity': 0.6,
-          'line-width': 2,
-          // 'line-pattern': "mycelium_3"
-        }
-      })
+          'line-color': '#ee0000',
+          'line-opacity': 0.8,
+          'line-width': 1,
+          "line-blur": 5,
+           "line-pattern": "lijn_4"
+                   }
+      }, "punten")
 
       startAnimation()
-
+      
+     
     }).catch(function (ex) {
       console.log('parsing failed', ex)
     })
@@ -75,8 +95,9 @@ map.on('load', function () {
 map.addControl(new mapboxgl.FullscreenControl())
 
 function step () {
-  distance = distance += 5
-
+  distance = distance += 25
+ 
+  map.setPaintProperty('geojson-shadow', 'line-width', lineStyle(distance))
   map.setPaintProperty('geojson', 'line-width', lineStyle(distance))
 
   if (distance <= maxDistance) {
@@ -102,7 +123,12 @@ function startAnimation () {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
 
-    new mapboxgl.Popup()
+    new mapboxgl.Popup({
+      // anchor: 'bottom-left',
+      closeButton: false,
+      closeOnClick: true,
+      offset: [0,-10]
+    })
       .setLngLat(coordinates)
       .setHTML(description)
       .addTo(map);

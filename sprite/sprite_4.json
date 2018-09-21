@@ -1,0 +1,135 @@
+{
+  "black_1": {
+    "height": 300,
+    "pixelRatio": 1,
+    "width": 299,
+    "x": 0,
+    "y": 0
+  },
+  "black_2": {
+    "height": 300,
+    "pixelRatio": 1,
+    "width": 299,
+    "x": 299,
+    "y": 0
+  },
+  "icon_1": {
+    "height": 37,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 598,
+    "y": 0
+  },
+  "icon_2": {
+    "height": 37,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 638,
+    "y": 0
+  },
+  "icon_3": {
+    "height": 37,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 678,
+    "y": 0
+  },
+  "icon_4": {
+    "height": 37,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 718,
+    "y": 0
+  },
+  "lijn_1": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 70,
+    "x": 758,
+    "y": 0
+  },
+  "lijn_1 (another copy)": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 70,
+    "x": 828,
+    "y": 0
+  },
+  "lijn_1 (copy)": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 70,
+    "x": 898,
+    "y": 0
+  },
+  "lijn_2": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 70,
+    "x": 968,
+    "y": 0
+  },
+  "lijn_3": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 70,
+    "x": 1038,
+    "y": 0
+  },
+  "lijn_4": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 140,
+    "x": 598,
+    "y": 300
+  },
+  "lijn_5": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 140,
+    "x": 738,
+    "y": 300
+  },
+  "lijn_6": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 140,
+    "x": 878,
+    "y": 300
+  },
+  "lijn_7": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 140,
+    "x": 1018,
+    "y": 300
+  },
+  "lijn_8": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 140,
+    "x": 0,
+    "y": 600
+  },
+  "lijn_9": {
+    "height": 35,
+    "pixelRatio": 1,
+    "width": 140,
+    "x": 140,
+    "y": 600
+  },
+  "ruitjes_1": {
+    "height": 300,
+    "pixelRatio": 1,
+    "width": 299,
+    "x": 0,
+    "y": 300
+  },
+  "structure_1": {
+    "height": 300,
+    "pixelRatio": 1,
+    "width": 299,
+    "x": 299,
+    "y": 300
+  }
+}

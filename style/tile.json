@@ -1,14 +1,12 @@
 {
     "tilejson": "2.2.0",
     "name": "general",
-    "description": "test general wm cloud stack",
+    "description": "pdok tiles voor Paradijs in de Polder",
     "version": "1.0.0",
-    "attribution": "&copy; <a href='http://webmapper.net'>Webmapper</a> Map data: <a href='https://openstreetmap.org'>OpenStreetMap</a>, <a href='https://www.kadaster.nl'>Kadaster</a>",
+    "attribution": "<a href='http://beta.nieneb.nl'> Niene & Bert </a>",
     "scheme": "xyz",
     "tiles": [
-        "https://ta.webmapper.nl/stb/achtergrond/{z}/{x}/{y}",
-        "https://tb.webmapper.nl/stb/achtergrond/{z}/{x}/{y}",
-        "https://tc.webmapper.nl/stb/achtergrond/{z}/{x}/{y}"
+        "http://geodata.nationaalgeoregister.nl/beta/topotiles/{z}/{x}/{y}.pbf"
     ],
     "minzoom": 5,
     "maxzoom": 22,

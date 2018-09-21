@@ -2,15 +2,20 @@
     "version": 8,
     "name": "data",
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "http://localhost:8080/sprite/mycelium",
+    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_4",
     "sources": {
-        "webmapper": {
+        "pdok": {
             "type": "vector",
-            "url": "http://localhost:8080/style/tile.json"
+            "scheme": "xyz",
+            "tiles":["https://geodata.nationaalgeoregister.nl/beta/topotiles/{z}/{x}/{y}.pbf"]
         },
         "punten":{
             "type": "geojson",
-             "data": "http://localhost:8080/geojson/points.geojson"
+             "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/points.geojson"
+        },
+        "geojson_locaties": {
+            "type": "geojson",
+            "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/locations.geojson"
         }
     },
     "layers": [
@@ -18,100 +23,144 @@
             "id": "background",
             "type": "background",
             "paint":{
-                "background-color": "#eddcb0"
+                "background-pattern": "ruitjes_1",
+                "background-opacity": 0.5
             }
         },
-{
-    "id": "terrein_z0",
-    "source": "webmapper",
-    "source-layer": "terrein",
-    "type": "fill",
-    "minzoom": 0,
-    "maxzoom": 22,
-    "paint": {
-        "fill-color": [
-            "match",
-            [
-                "get",
-                "typelandgebruik"
+        {
+            "id": "terrein",
+            "source": "pdok",
+            "source-layer": "terrain",
+            "type": "circle",
+            "filter": [
+                "in",
+                "lod1",
+                "natural"
             ],
-            "akkerland",
-            "#ecdaaa",
-            "basaltblokken, steenglooiing",
-            "#cccccc",
-            "boomgaard",
-            "#cec88a",
-            "boomkwekerij",
-            "#cec88a",
-            "braakliggend",
-            "#cccccc",
-            "dodenakker",
-            "#cccccc",
-            "dodenakker met bos",
-            "#cec88a",
-            "duin",
-            "#e5cd8b",
-            "fruitkwekerij",
-            "#cccccc",
-            "grasland",
-            "#e5cd8b",
-            "heide",
-            "#cccccc",
-            "populieren",
-            "#cccccc",
-            "overig",
-            "#ecdaaa",
-            "zand",
-            "#ecdaaa",
-            "spoorbaanlichaam",
-            "#ecdaaa",
-            "bos: gemengd bos",
-            "#e5cd8b",
-            "bos: griend",
-            "#e5cd8b",
-            "bos: loofbos",
-            "#e5cd8b",
-            "bos: naaldbos",
-            "#e5cd8b",
-            "bos",
-            "#e5cd8b",
-            "rgba(0,0,0,0)"
-        ],
-        "fill-outline-color": "rgba(0,0,0,0)"
-    }
-},
+            "layout": {
+                "visibility": "visible"
+            },
+            "minzoom": 0,
+            "maxzoom": 22,
+            "paint": {
+                "circle-color": "#8cb528",
+                "circle-opacity": 0.1,
+                "circle-radius": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    5,
+                    12,
+                    8,
+                    14,
+                    10,
+                    20,
+                    15
+                ]
+            }
+        }, 
+        {
+            "id": "cirles",
+            "source": "geojson_locaties",
+            "type": "circle",
+            "minzoom": 0,
+            "maxzoom": 22,
+            "paint": {
+                "circle-color": "#553333",
+                "circle-radius": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    8,
+                    20,
+                    12,
+                    150,
+                    13,
+                    200,
+                    14,
+                    250,
+                    15,
+                    550,
+                    16,
+                    1000
+                ],
+                "circle-opacity": 0.1
+            }
+        },
+        {
+            "id": "terrein_lijn",
+            "source": "pdok",
+            "source-layer": "terrain",
+            "type": "line",
+            "filter": ["in", "lod1",
+                "natural"
+            ],
+            "minzoom": 0,
+            "maxzoom": 22,
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#ffffff",
+                "line-width": 1,
+                "line-blur": 1,
+                "line-offset": 0,
+                "line-opacity": 0.7
+            }
+        },
         {
             "id": "water",
-            "source": "webmapper",
+            "source": "pdok",
             "source-layer": "water",
             "type": "fill",
+            "layout": {
+                "visibility": "visible"
+            },
             "paint": {
-                "fill-color": "#f7eeda",
-                "fill-opacity": 1,
-                "fill-outline-color": "rgba(0,0,255,0)"
+                "fill-pattern": "black_1",
+                "fill-opacity": 1
             }
         },
         {
             "id": "punten",
             "source": "punten",
-            "type": "circle",
-            "paint":{
-                "circle-color" :[
-                    "match",
+            "type": "symbol",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "icon_1",
+                "icon-size":[
+                    "interpolate",
                     [
-                        "get",
-                        "thema"
+                        "linear"
                     ],
-                    "onverwacht",
-                    "#000eee",
-                    "ontmoeting",
-                    "#ee00ee",
-                    "dier",
-                    "#eee000",
-                    "#000000"
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0.01,
+                    12,
+                    0.4,
+                    13,
+                    0.7,
+                    14,
+                    0.9,
+                    16,1
                 ],
-                "circle-radius": 5
+                "icon-allow-overlap": true
+            },
+            "paint": {
+                "icon-opacity": 0.8
             }
         }
+       
     ]
 }
