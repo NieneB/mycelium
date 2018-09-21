@@ -9,9 +9,9 @@
 { "type": "Feature", "properties": { "id": 4, "thema": "foto", "titel": "Mooi foto moment", "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.91528, 52.367058 ] } },
 { "type": "Feature", "properties": { "id": 5, "thema": "onverwacht", "titel": "verdwaald", "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.916803, 52.369143 ] } },
 { "type": "Feature", "properties": { "id": 6, "thema": "onverwacht", "titel": "hulp bij verdwalen", "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.917939, 52.369201 ] } },
-{ "type": "Feature", "properties": { "id": 6, "thema": "ontmoeting", "titel": null, "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.90056, 52.372828 ] } },
-{ "type": "Feature", "properties": { "id": 7, "thema": "onverwacht", "titel": null, "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.900528, 52.371858 ] } },
-{ "type": "Feature", "properties": { "id": 8, "thema": "dier", "titel": null, "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.895848, 52.369005 ] } },
-{ "type": "Feature", "properties": { "id": 9, "thema": "dier", "titel": null, "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.894513, 52.369 ] } }
+{ "type": "Feature", "properties": { "id": 6, "thema": "ontmoeting", "titel": null, "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.914942903177796, 52.365932436162502 ] } },
+{ "type": "Feature", "properties": { "id": 7, "thema": "onverwacht", "titel": null, "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.913518119911505, 52.369256930450518 ] } },
+{ "type": "Feature", "properties": { "id": 8, "thema": "dier", "titel": null, "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.912805728278359, 52.367832147184224 ] } },
+{ "type": "Feature", "properties": { "id": 9, "thema": "dier", "titel": null, "link": null, "img": null }, "geometry": { "type": "Point", "coordinates": [ 4.9196921807321, 52.371948187731292 ] } }
 ]
 }

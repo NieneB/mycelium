@@ -28,15 +28,72 @@
             }
         },
         {
+            "id": "terrein",
+            "source": "pdok",
+            "source-layer": "terrain",
+            "type": "circle",
+            "filter": [
+                "in",
+                "lod1",
+                "natural"
+            ],
+            "layout": {
+                "visibility": "visible"
+            },
+            "minzoom": 0,
+            "maxzoom": 22,
+            "paint": {
+                "circle-color": "#8cb528",
+                "circle-opacity": 0.1,
+                "circle-radius": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    5,
+                    12,
+                    8,
+                    14,
+                    10,
+                    20,
+                    15
+                ]
+            }
+        }, 
+        {
             "id": "cirles",
             "source": "geojson_locaties",
             "type": "circle",
             "minzoom": 0,
             "maxzoom": 22,
             "paint": {
-               "circle-color": "#553333",
-               "circle-radius":  200,
-               "circle-opacity": 0.1
+                "circle-color": "#553333",
+                "circle-radius": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    8,
+                    20,
+                    12,
+                    150,
+                    13,
+                    200,
+                    14,
+                    250,
+                    15,
+                    550,
+                    16,
+                    1000
+                ],
+                "circle-opacity": 0.1
             }
         },
         {
@@ -50,72 +107,16 @@
             "minzoom": 0,
             "maxzoom": 22,
             "layout": {
-                "visibility": "none"
+                "visibility": "visible"
             },
             "paint": {
-                "line-color": "#4e6618",
-                "line-width": 2,
+                "line-color": "#ffffff",
+                "line-width": 1,
                 "line-blur": 1,
                 "line-offset": 0,
-                "line-opacity": 0
+                "line-opacity": 0.7
             }
         },
-        {
-            "id": "terrain-shadow",
-            "source": "pdok",
-            "source-layer": "terrain",
-            "type": "line",
-            "filter": [
-                "in",
-                "lod1",
-                "natural"
-            ],
-            "paint": {
-                "line-color": "#535353",
-                "line-width": 0,
-                "line-translate": [
-                    1,
-                    2
-                ],
-                "line-blur": 3
-            }
-        },
-        {
-            "id": "water-shadow",
-            "source": "pdok",
-            "source-layer": "water",
-            "type": "line",
-            "paint": {
-                "line-color": "#535353",
-                "line-width": 0,
-                "line-translate": [
-                    2,
-                    2
-                ],
-                "line-blur": 3
-            }
-        },
-        {
-            "id": "terrein_z0",
-            "source": "pdok",
-            "source-layer": "terrain",
-            "type": "fill",
-           "filter": [
-            "in",
-            "lod1",
-            "natural"
-        ],
-        "layout": {
-            "visibility": "none"
-        },
-            "minzoom": 0,
-            "maxzoom": 22,
-            "paint": {
-                "fill-pattern":  "structure_1",
-                "fill-opacity": 1
-            }
-        },
-
         {
             "id": "water",
             "source": "pdok",
@@ -133,32 +134,27 @@
             "id": "punten",
             "source": "punten",
             "type": "symbol",
-                        "filter": [
-                            "!=",
-                            "thema",
-                            "ontmoeting"
-                        ],
-                        
             "layout": {
                 "visibility": "visible",
                 "icon-image": "icon_1",
-                "icon-size": 0.7,
-                "icon-allow-overlap": true
-            },
-            "paint": {
-                "icon-opacity": 0.8
-
-            }
-        },
-        {
-            "id": "punten_@",
-            "source": "punten",
-            "type": "symbol",
-            "filter": ["==","thema","ontmoeting"],
-            "layout": {
-                "visibility": "visible",
-                "icon-image": "icon_2",
-                "icon-size": 0.7,
+                "icon-size":[
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0.01,
+                    12,
+                    0.4,
+                    13,
+                    0.7,
+                    14,
+                    0.9,
+                    16,1
+                ],
                 "icon-allow-overlap": true
             },
             "paint": {
