@@ -7,7 +7,7 @@
         "pdok": {
             "type": "vector",
             "scheme": "xyz",
-            "tiles":["http://geodata.nationaalgeoregister.nl/beta/topotiles/{z}/{x}/{y}.pbf"]
+            "tiles":["https://geodata.nationaalgeoregister.nl/beta/topotiles/{z}/{x}/{y}.pbf"]
         },
         "punten":{
             "type": "geojson",
