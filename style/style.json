@@ -2,7 +2,7 @@
     "version": 8,
     "name": "data",
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_4",
+    "sprite": "http://localhost:8080/sprite/sprite_5",
     "sources": {
         "pdok": {
             "type": "vector",
@@ -31,21 +31,18 @@
             "id": "terrein",
             "source": "pdok",
             "source-layer": "terrain",
-            "type": "circle",
+            "type": "symbol",
+            "minzoom": 0,
+            "maxzoom": 22,
             "filter": [
                 "in",
                 "lod1",
                 "natural"
             ],
             "layout": {
-                "visibility": "visible"
-            },
-            "minzoom": 0,
-            "maxzoom": 22,
-            "paint": {
-                "circle-color": "#8cb528",
-                "circle-opacity": 0.1,
-                "circle-radius": [
+                "visibility": "visible",
+                "icon-image": "circle_landscape",
+                "icon-size": [
                     "interpolate",
                     [
                         "linear"
@@ -54,14 +51,19 @@
                         "zoom"
                     ],
                     11,
-                    5,
+                    0.1,
                     12,
-                    8,
+                    0.5,
                     14,
-                    10,
+                    0.9,
                     20,
-                    15
-                ]
+                    1
+                ],
+                "icon-allow-overlap": true,
+                "icon-rotate": [ "*",["get","z_index"],30]
+            },
+            "paint": {
+                "icon-opacity": 0.3
             }
         }, 
         {
@@ -93,7 +95,18 @@
                     16,
                     1000
                 ],
-                "circle-opacity": 0.1
+                "circle-opacity": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    10,0.4,
+                    11,0.2,
+                    12,0.1
+                ]
             }
         },
         {
@@ -111,7 +124,20 @@
             },
             "paint": {
                 "line-color": "#ffffff",
-                "line-width": 1,
+                "line-width": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    10,0,
+                    11,0.5,
+                    13,1,
+                    14,1.5,
+                    16, 3
+                ],
                 "line-blur": 1,
                 "line-offset": 0,
                 "line-opacity": 0.7
