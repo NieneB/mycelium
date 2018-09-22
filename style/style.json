@@ -1,7 +1,6 @@
 {
     "version": 8,
     "name": "data",
-    "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
     "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_5",
     "sources": {
         "pdok": {
@@ -23,8 +22,7 @@
             "id": "background",
             "type": "background",
             "paint":{
-                "background-pattern": "ruitjes_1",
-                "background-opacity": 0.5
+                "background-pattern": "ruitjes_1"
             }
         },
         {
@@ -164,6 +162,38 @@
             }
         },
         {
+            "id": "punte-schaduw",
+            "source": "punten",
+            "type": "symbol",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "icon_3",
+                "icon-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0.01,
+                    12,
+                    0.4,
+                    13,
+                    0.7,
+                    14,
+                    0.9,
+                    16,
+                    1
+                ],
+                "icon-allow-overlap": true
+            },
+            "paint": {
+                "icon-opacity": 0.8
+            }
+        },
+        {
             "id": "punten",
             "source": "punten",
             "type": "symbol",
@@ -188,7 +218,8 @@
                     0.9,
                     16,1
                 ],
-                "icon-allow-overlap": true
+                "icon-allow-overlap": true,
+                "icon-rotate":["*",["get", "id"],30]
             },
             "paint": {
                 "icon-opacity": 0.8
