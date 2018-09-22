@@ -17,7 +17,6 @@
             "type": "geojson",
             "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/locations.geojson"
         },
-        ,
         "geojson_lines": {
             "type": "geojson",
             "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/mycelium-segmentized.geojson"
@@ -138,7 +137,7 @@
         {
             "id": "geojson-shadow",
             "type": "line",
-            "source": "geojson",
+            "source": "geojson_lines",
             "layout": {
                 "line-join": "round",
                 "line-cap": "round"
@@ -170,7 +169,7 @@
         {
             "id": "geojson",
             "type": "line",
-            "source": "geojson",
+            "source": "geojson_lines",
             "layout": {
                 "line-join": "round",
                 "line-cap": "round"
