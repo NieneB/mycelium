@@ -2,7 +2,7 @@
     "version": 8,
     "name": "data",
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "http://localhost:8080/sprite/sprite_5",
+    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_5",
     "sources": {
         "pdok": {
             "type": "vector",
@@ -60,7 +60,14 @@
                     1
                 ],
                 "icon-allow-overlap": true,
-                "icon-rotate": [ "*",["get","z_index"],30]
+                "icon-rotate":["match",
+                    ["get", "lod2"],
+                    "high_vegetation",10,
+                    "low_vegetation", 230,
+                    "agriculture",  90,
+                    "open", 300, 
+                    45
+                ]
             },
             "paint": {
                 "icon-opacity": 0.3
