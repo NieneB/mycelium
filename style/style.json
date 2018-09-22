@@ -1,7 +1,8 @@
 {
     "version": 8,
     "name": "data",
-    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_5",
+    "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
+    "sprite": "http://localhost:8080/sprite/sprite_5",
     "sources": {
         "pdok": {
             "type": "vector",
@@ -162,7 +163,7 @@
             }
         },
         {
-            "id": "punte-schaduw",
+            "id": "punten-schaduw",
             "source": "punten",
             "type": "symbol",
             "layout": {
