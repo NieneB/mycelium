@@ -2,7 +2,7 @@
     "version": 8,
     "name": "data",
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_4",
+    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_5",
     "sources": {
         "pdok": {
             "type": "vector",
