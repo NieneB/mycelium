@@ -15,6 +15,9 @@
 <body>
 <div id='map'></div>
 <script>
+
+//Check for WebGL support
+if (!mapboxgl.supported()) { alert('Your browser does not support Mapbox GL');};
 // mapboxgl.accessToken = 'pk.eyJ1IjoibnlwbGxhYnMiLCJhIjoiSFVmbFM0YyJ9.sl0CRaO71he1XMf_362FZQ'
 
 let distance = 0
