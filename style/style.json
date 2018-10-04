@@ -2,7 +2,7 @@
     "version": 8,
     "name": "data",
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_4",
+    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_5",
     "sources": {
         "pdok": {
             "type": "vector",
@@ -23,29 +23,25 @@
             "id": "background",
             "type": "background",
             "paint":{
-                "background-pattern": "ruitjes_1",
-                "background-opacity": 0.5
+                "background-pattern": "ruitjes_1"
             }
         },
         {
             "id": "terrein",
             "source": "pdok",
             "source-layer": "terrain",
-            "type": "circle",
+            "type": "symbol",
+            "minzoom": 0,
+            "maxzoom": 22,
             "filter": [
                 "in",
                 "lod1",
                 "natural"
             ],
             "layout": {
-                "visibility": "visible"
-            },
-            "minzoom": 0,
-            "maxzoom": 22,
-            "paint": {
-                "circle-color": "#8cb528",
-                "circle-opacity": 0.1,
-                "circle-radius": [
+                "visibility": "visible",
+                "icon-image": "circle_landscape",
+                "icon-size": [
                     "interpolate",
                     [
                         "linear"
@@ -54,14 +50,28 @@
                         "zoom"
                     ],
                     11,
-                    5,
+                    0.1,
                     12,
-                    8,
+                    0.5,
                     14,
-                    10,
+                    0.9,
                     20,
-                    15
-                ]
+                    1
+                ],
+                "icon-allow-overlap": true,
+                "icon-rotate":["match",
+                    ["get", "lod2"],
+                    "high_vegetation",10,
+                    "low_vegetation", 230,
+                    "agriculture",  90,
+                    "open", 300, 
+                    45
+                ],
+                "icon-rotation-alignment": "map",
+                "icon-pitch-alignment": "map"
+            },
+            "paint": {
+                "icon-opacity": 0.3
             }
         }, 
         {
@@ -93,7 +103,18 @@
                     16,
                     1000
                 ],
-                "circle-opacity": 0.1
+                "circle-opacity": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    10,0.4,
+                    11,0.2,
+                    12,0.1
+                ]
             }
         },
         {
@@ -111,7 +132,20 @@
             },
             "paint": {
                 "line-color": "#ffffff",
-                "line-width": 1,
+                "line-width": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    10,0,
+                    11,0.5,
+                    13,1,
+                    14,1.5,
+                    16, 3
+                ],
                 "line-blur": 1,
                 "line-offset": 0,
                 "line-opacity": 0.7
@@ -128,6 +162,40 @@
             "paint": {
                 "fill-pattern": "black_1",
                 "fill-opacity": 1
+            }
+        },
+        {
+            "id": "punten-schaduw",
+            "source": "punten",
+            "type": "symbol",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "icon_3",
+                "icon-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0.01,
+                    12,
+                    0.4,
+                    13,
+                    0.7,
+                    14,
+                    0.9,
+                    16,
+                    1
+                ],
+                "icon-allow-overlap": true,
+                "icon-rotation-alignment": "map",
+                "icon-pitch-alignment": "map"
+            },
+            "paint": {
+                "icon-opacity": 0.8
             }
         },
         {
@@ -155,7 +223,8 @@
                     0.9,
                     16,1
                 ],
-                "icon-allow-overlap": true
+                "icon-allow-overlap": true,
+                "icon-rotate":["*",["get", "id"],30]
             },
             "paint": {
                 "icon-opacity": 0.8

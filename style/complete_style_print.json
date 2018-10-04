@@ -1,0 +1,287 @@
+{
+    "version": 8,
+    "name": "data",
+    "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
+    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_5",
+    "sources": {
+        "pdok": {
+            "type": "vector",
+            "scheme": "xyz",
+            "tiles":["https://geodata.nationaalgeoregister.nl/beta/topotiles/{z}/{x}/{y}.pbf"]
+        },
+        "punten":{
+            "type": "geojson",
+            "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/points.geojson"
+        },
+        "geojson_locaties": {
+            "type": "geojson",
+            "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/locations.geojson"
+        },
+        "geojson_lines": {
+            "type": "geojson",
+            "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/mycelium-segmentized.geojson"
+        }
+    },
+    "layers": [
+       {
+        "id": "background",
+        "type": "background",
+        "paint": {
+            "background-pattern": "ruitjes_1"
+        }
+    },
+    {
+        "id": "terrein",
+        "source": "pdok",
+        "source-layer": "terrain",
+        "type": "symbol",
+        "minzoom": 0,
+        "maxzoom": 22,
+        "filter": [
+            "in",
+            "lod1",
+            "natural"
+        ],
+        "layout": {
+            "visibility": "visible",
+            "icon-image": "circle_landscape",
+            "icon-size": [
+                "interpolate",
+                [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                11,
+                0.1,
+                12,
+                0.5,
+                14,
+                0.9,
+                20,
+                1
+            ],
+            "icon-allow-overlap": true,
+            "icon-rotate": [
+                "match",
+                [
+                    "get",
+                    "lod2"
+                ],
+                "high_vegetation",
+                10,
+                "low_vegetation",
+                230,
+                "agriculture",
+                90,
+                "open",
+                300,
+                45
+            ]
+        },
+        "paint": {
+            "icon-opacity": 0.3
+        }
+    },
+    {
+        "id": "cirles",
+        "source": "geojson_locaties",
+        "type": "circle",
+        "minzoom": 0,
+        "maxzoom": 22,
+        "paint": {
+            "circle-color": "#553333",
+            "circle-radius": [
+                "interpolate",
+                [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                8,
+                20,
+                12,
+                150,
+                13,
+                200,
+                14,
+                250,
+                15,
+                550,
+                16,
+                1000
+            ],
+            "circle-opacity": [
+                "interpolate",
+                [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                10,
+                0.4,
+                11,
+                0.2,
+                12,
+                0.1
+            ]
+        }
+    },
+    {
+        "id": "terrein_lijn",
+        "source": "pdok",
+        "source-layer": "terrain",
+        "type": "line",
+        "filter": [
+            "in",
+            "lod1",
+            "natural"
+        ],
+        "minzoom": 0,
+        "maxzoom": 22,
+        "layout": {
+            "visibility": "visible"
+        },
+        "paint": {
+            "line-color": "#ffffff",
+            "line-width": [
+                "interpolate",
+                [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                10,
+                0,
+                11,
+                0.5,
+                13,
+                1,
+                14,
+                1.5,
+                16,
+                3
+            ],
+            "line-blur": 1,
+            "line-offset": 0,
+            "line-opacity": 0.7
+        }
+    },
+    {
+        "id": "water",
+        "source": "pdok",
+        "source-layer": "water",
+        "type": "fill",
+        "layout": {
+            "visibility": "visible"
+        },
+        "paint": {
+            "fill-pattern": "black_1",
+            "fill-opacity": 1
+        }
+    },
+    
+        {
+            "id": "geojson",
+            "type": "line",
+            "source": "geojson_lines",
+            "layout": {
+                "line-join": "round",
+                "line-cap": "round"
+            },
+            "paint": {
+                "line-opacity": 0.8,
+                "line-width": ["interpolate",
+                    ["cubic-bezier",
+                        0.42,
+                        0,
+                        0.5,
+                        0.7
+                    ],
+                    ["get", "distance"],
+                    0, 7.5,
+                    1000, 0
+                    
+                ],
+                "line-blur": 5,
+                "line-pattern": "lijn_4"
+            }
+        },
+        {
+            "id": "punten-schaduw",
+            "source": "punten",
+            "type": "symbol",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "icon_3",
+                "icon-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0.01,
+                    12,
+                    0.4,
+                    13,
+                    0.7,
+                    14,
+                    0.9,
+                    16,
+                    1
+                ],
+                "icon-allow-overlap": true
+            },
+            "paint": {
+                "icon-opacity": 0.8
+            }
+        },
+        {
+            "id": "punten",
+            "source": "punten",
+            "type": "symbol",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "icon_1",
+                "icon-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0.01,
+                    12,
+                    0.4,
+                    13,
+                    0.7,
+                    14,
+                    0.9,
+                    16,
+                    1
+                ],
+                "icon-allow-overlap": true,
+                "icon-rotate": [
+                    "*",
+                    [
+                        "get",
+                        "id"
+                    ],
+                    30
+                ]
+            },
+            "paint": {
+                "icon-opacity": 0.8
+            }
+        }
+    ]
+}
