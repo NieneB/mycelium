@@ -81,6 +81,8 @@
             "minzoom": 0,
             "maxzoom": 22,
             "paint": {
+                "circle-pitch-scale": "map",
+                "circle-pitch-alignment": "map",
                 "circle-color": "#553333",
                 "circle-radius": [
                     "interpolate",
