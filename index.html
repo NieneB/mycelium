@@ -57,6 +57,8 @@ map.on('load', function () {
         id: 'geojson-shadow',
         type: 'line',
         source: 'geojson',
+        minzoom: 12,
+        maxzoom: 22,
         layout: {
           'line-join': 'round',
           'line-cap': 'round'
@@ -74,6 +76,8 @@ map.on('load', function () {
         id: 'geojson',
         type: 'line',
         source: 'geojson',
+        minzoom: 12,
+        maxzoom: 22,
         layout: {
           'line-join': 'round',
           'line-cap': 'round'
@@ -96,6 +100,13 @@ map.on('load', function () {
 })
 
 map.addControl(new mapboxgl.FullscreenControl())
+
+// MAP ATTRIBUTE CONTROLL
+var att = new mapboxgl.AttributionControl();
+att._updateAttributions = function () {
+  this._container.innerHTML = "&copy; <a href=\'http://www.bertspaan.nl\' target=\'_blank\'>Bert</a> &#38; <a href=\'http://nieneb.nl\' target=\'_blank\'>Niene</a> | Data <a href=\'https://github.com/PDOK/vectortiles-bgt-brt\' target=\'_blank\'>PDOK</a>"
+};
+map.addControl(att, 'bottom-left');
 
 function step () {
   distance = distance += 25
@@ -137,12 +148,12 @@ function startAnimation () {
       .addTo(map);
   });
   // Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'punten', function () {
+  map.on('mouseenter', 'punt_plaats', function () {
     map.getCanvas().style.cursor = 'pointer';
   });
 
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'punten', function () {
+  map.on('mouseleave', 'punt_plaats', function () {
     map.getCanvas().style.cursor = '';
   });
 
