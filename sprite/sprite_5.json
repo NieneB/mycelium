@@ -145,5 +145,33 @@
     "width": 299,
     "x": 299,
     "y": 300
+  },
+  "verdwijn":{
+    "height": 49,
+    "pixelRatio": 1,
+    "width": 49,
+    "x": 598,
+    "y": 61
+  },
+  "plek": {
+    "height": 16,
+    "pixelRatio": 1,
+    "width": 15,
+    "x": 837,
+    "y": 0
+  },
+  "aha": {
+    "height": 34,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 852,
+    "y": 0
+  },
+  "ontboezeming": {
+    "height": 67,
+    "pixelRatio": 1,
+    "width": 69,
+    "x": 648,
+    "y": 59
   }
 }
