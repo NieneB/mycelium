@@ -15,3 +15,53 @@
   theme: boom
   url: https://www.paradijsindepolder.nl/blog/2018/10/3/de-kracht-van-verbeelding
   coordinates: [52.3654, 4.8548]
+
+- title: Test 3
+  theme: boom
+  url:
+  coordinates: [52.3661, 4.9158]
+
+- title: Test 4
+  theme: ontboezeming
+  url:
+  coordinates: [52.3678, 4.9131]
+
+- title: Test 5
+  theme:
+  url:
+  coordinates: [52.3667, 4.91392]
+
+- title: Test 6
+  theme: ontboezeming
+  url:
+  coordinates: [52.367058, 4.91528]
+
+- title: Test 7
+  theme: overig
+  url:
+  coordinates: [52.369143, 4.916803]
+
+- title: Test 8
+  theme: verdwijn
+  url:
+  coordinates: [52.369201, 4.917939]
+
+- title: Test 9
+  theme: ontboezeming
+  url:
+  coordinates: [52.365932, 4.914942]
+
+- title: Test 10
+  theme: aha
+  url:
+  coordinates: [52.369256, 4.913518]
+
+- title: Test 11
+  theme: boom
+  url:
+  coordinates: [52.367832, 4.912805]
+
+- title: Test 12
+  theme: aha
+  url:
+  coordinates: [52.371948, 4.919692]
