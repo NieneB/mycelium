@@ -208,29 +208,37 @@
     {
       "id": "punten-schaduw",
       "source": "punten",
-      "type": "symbol",
+      "type": "circle",
+      "minzoom": 10,
+       "maxzoom": 22,
       "layout": {
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
-        "icon-opacity": 0.8
+        "circle-opacity": 1,
+        "circle-color": "#000",
+        "circle-radius": 35,
+        "circle-blur": 1,
+        "circle-translate":[5,5]
       }
     },
     {
       "id": "punten",
       "source": "punten",
       "type": "symbol",
-      "minzoom": 14,
+      "minzoom": 10,
       "maxzoom": 22,
       "layout": {
         "visibility": "visible",
-        "icon-image": ["match",
-        ["get", "thema"],
-            "aha","aha",
-            "boom","boom",
-            "verdwijn","verdwijn",
-            "ontboezeming","ontboezeming",
-            "overig"],
+        "icon-image": [
+            "match",
+                ["get", "thema"],
+                "aha","aha",
+                "boom","boom",
+                "verdwijn","verdwijn",
+                "ontboezeming","ontboezeming",
+                "overig"
+            ],
             "icon-size": [
                 "interpolate",
                 [
