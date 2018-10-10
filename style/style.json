@@ -232,7 +232,7 @@
         "visibility": "visible",
         "icon-image": [
             "match",
-                ["get", "thema"],
+                ["get", "theme"],
                 "aha","aha",
                 "boom","boom",
                 "verdwijn","verdwijn",
