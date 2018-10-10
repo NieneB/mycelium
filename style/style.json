@@ -19,7 +19,7 @@
     },
     "geojson_locaties": {
       "type": "geojson",
-      "data": "{{ site.baseurl | absolute_url }}/geojson/locations.geojson"
+      "data": "{{ "/geojson/locations.geojson" | absolute_url }}"
     }
   },
   "layers": [
