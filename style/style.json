@@ -2,7 +2,7 @@
     "version": 8,
     "name": "data",
     "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "https://raw.githubusercontent.com/NieneB/mycelium/master/sprite/sprite_5",
+    "sprite": "https://raw.githubusercontent.com/bertspaan/mycelium/master/sprite/sprite_5",
     "sources": {
         "pdok": {
             "type": "vector",
@@ -31,12 +31,24 @@
             "source": "pdok",
             "source-layer": "terrain",
             "type": "symbol",
-            "minzoom": 0,
+            "minzoom": 11 ,
             "maxzoom": 22,
-            "filter": [
-                "in",
-                "lod1",
-                "natural"
+            "filter": [ "all",
+                [
+                    "in",
+                    "lod1",
+                    "natural"
+                ],
+                [
+                    "!=",
+                    "lod2",
+                    "agriculture"
+                ],
+                [
+                    "!=",
+                    "lod2",
+                    "open"
+                ]
             ],
             "layout": {
                 "visibility": "visible",
@@ -50,20 +62,23 @@
                         "zoom"
                     ],
                     11,
-                    0.1,
+                    0,
                     12,
-                    0.5,
+                    0.3,
                     14,
                     0.9,
+                    15,
+                    1,
+                    16, 
+                    1.5,
                     20,
-                    1
+                    2
                 ],
                 "icon-allow-overlap": true,
                 "icon-rotate":["match",
                     ["get", "lod2"],
                     "high_vegetation",10,
                     "low_vegetation", 230,
-                    "agriculture",  90,
                     "open", 300, 
                     45
                 ],
@@ -78,9 +93,11 @@
             "id": "cirles",
             "source": "geojson_locaties",
             "type": "circle",
-            "minzoom": 0,
+            "minzoom": 8,
             "maxzoom": 22,
             "paint": {
+                "circle-pitch-scale": "map",
+                "circle-pitch-alignment": "map",
                 "circle-color": "#553333",
                 "circle-radius": [
                     "interpolate",
@@ -125,7 +142,7 @@
             "filter": ["in", "lod1",
                 "natural"
             ],
-            "minzoom": 0,
+            "minzoom": 13,
             "maxzoom": 22,
             "layout": {
                 "visibility": "visible"
@@ -140,11 +157,11 @@
                     [
                         "zoom"
                     ],
-                    10,0,
-                    11,0.5,
-                    13,1,
-                    14,1.5,
-                    16, 3
+                    12,0,
+                    13,0.5,
+                    14,1,
+                    15,1.5,
+                    16, 2
                 ],
                 "line-blur": 1,
                 "line-offset": 0,
@@ -156,6 +173,8 @@
             "source": "pdok",
             "source-layer": "water",
             "type": "fill",
+            "minzoom": 0,
+            "maxzoom": 22,
             "layout": {
                 "visibility": "visible"
             },
@@ -164,12 +183,13 @@
                 "fill-opacity": 1
             }
         },
+      
         {
             "id": "punten-schaduw",
             "source": "punten",
             "type": "symbol",
             "layout": {
-                "visibility": "visible",
+                "visibility": "none",
                 "icon-image": "icon_3",
                 "icon-size": [
                     "interpolate",
@@ -199,12 +219,150 @@
             }
         },
         {
-            "id": "punten",
+            "id": "punt_verdwijnen",
             "source": "punten",
             "type": "symbol",
+            "minzoom": 14,
+            "maxzoom": 22,
+            "filter": [
+                "==",
+                "thema",
+                "onverwacht"
+            ],
             "layout": {
                 "visibility": "visible",
-                "icon-image": "icon_1",
+                "icon-image": "verdwijn",
+                "icon-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0.01,
+                    12,
+                    0.4,
+                    13,
+                    0.7,
+                    14,
+                    0.9,
+                    16,
+                    1
+                ],
+                "icon-allow-overlap": true,
+                "icon-rotate": [
+                    "*",
+                    [
+                        "get",
+                        "id"
+                    ],
+                    30
+                ]
+            },
+            "paint": {
+                "icon-opacity": 0.6
+            }
+        },
+        {
+            "id": "punt_ontboezeming",
+            "source": "punten",
+            "type": "symbol",
+            "minzoom": 14,
+            "maxzoom": 22,
+            "filter": [
+                "==",
+                "thema",
+                "route"
+            ],
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "ontboezeming",
+                "icon-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0.01,
+                    12,
+                    0.4,
+                    13,
+                    0.7,
+                    14,
+                    0.9,
+                    16,
+                    1
+                ],
+                "icon-allow-overlap": true,
+                "icon-rotate": [
+                    "*",
+                    [
+                        "get",
+                        "id"
+                    ],
+                    30
+                ]
+            },
+            "paint": {
+                "icon-opacity": 0.85
+            }
+        },
+        {
+            "id": "punt_aha",
+            "source": "punten",
+            "type": "symbol",
+            "minzoom": 14,
+            "maxzoom": 22,
+            "filter": [
+                "==",
+                "thema",
+                "ontmoeting"
+            ],
+            "layout": {
+                "visibility": "none",
+                "icon-image": "aha",
+                "icon-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0.01,
+                    12,
+                    0.4,
+                    13,
+                    0.7,
+                    14,
+                    0.9,
+                    16,
+                    1
+                ],
+                "icon-allow-overlap": true
+            },
+            "paint": {
+                "icon-opacity": 1
+            }
+        },
+        {
+            "id": "punt_plaats",
+            "source": "punten",
+            "type": "symbol",
+            "minzoom": 14,
+            "maxzoom": 22,
+            "filter":[
+                "==", "thema", "dier"
+            ],
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "plek",
                 "icon-size":[
                     "interpolate",
                     [
@@ -227,9 +385,10 @@
                 "icon-rotate":["*",["get", "id"],30]
             },
             "paint": {
-                "icon-opacity": 0.8
+                "icon-opacity": 1
             }
         }
-       
+        
+     
     ]
 }
