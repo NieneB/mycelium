@@ -17,9 +17,9 @@
       "type": "geojson",
       "data": "{{ "/geojson/points.geojson" | absolute_url }}"
     },
-    "geojson_locaties": {
+    "areas": {
       "type": "geojson",
-      "data": "{{ "/geojson/locations.geojson" | absolute_url }}"
+      "data": "{{ "/geojson/areas.geojson" | absolute_url }}"
     }
   },
   "layers": [
@@ -103,7 +103,7 @@
     },
     {
       "id": "cirles",
-      "source": "geojson_locaties",
+      "source": "areas",
       "type": "circle",
       "minzoom": 8,
       "maxzoom": 22,
