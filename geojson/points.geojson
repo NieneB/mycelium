@@ -11,7 +11,9 @@
         "coordinates": {{ point.coordinates | reverse | jsonify }}
       },
       "properties": {
-        "title": "{{ location.title }}"
+        "title": "{{ point.title }}",
+        "theme": "{{ point.theme }}",
+        "url": "{{ point.url }}"
       }
     }
     {% if forloop.last == false %}
