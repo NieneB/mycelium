@@ -15,7 +15,7 @@
     },
     "punten": {
       "type": "geojson",
-      "data": "{{ "/geojson/points.geojson" | absolute_url }}"
+      "data": "{{ "/sprite/sprite" | absolute_url }}" 
     },
     "areas": {
       "type": "geojson",
@@ -210,30 +210,7 @@
       "source": "punten",
       "type": "symbol",
       "layout": {
-        "visibility": "none",
-        "icon-image": "icon_3",
-        "icon-size": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          11,
-          0.01,
-          12,
-          0.4,
-          13,
-          0.7,
-          14,
-          0.9,
-          16,
-          1
-        ],
-        "icon-allow-overlap": true,
-        "icon-rotation-alignment": "map",
-        "icon-pitch-alignment": "map"
+        "visibility": "none"
       },
       "paint": {
         "icon-opacity": 0.8
@@ -248,7 +225,7 @@
       "filter": [
         "==",
         "thema",
-        "onverwacht"
+        "verdwijn"
       ],
       "layout": {
         "visibility": "visible",
@@ -272,18 +249,10 @@
           16,
           1
         ],
-        "icon-allow-overlap": true,
-        "icon-rotate": [
-          "*",
-          [
-            "get",
-            "id"
-          ],
-          30
-        ]
+        "icon-allow-overlap": true
       },
       "paint": {
-        "icon-opacity": 0.6
+        "icon-opacity":1
       }
     },
     {
@@ -295,7 +264,7 @@
       "filter": [
         "==",
         "thema",
-        "route"
+        "ontboezeming"
       ],
       "layout": {
         "visibility": "visible",
@@ -330,7 +299,7 @@
         ]
       },
       "paint": {
-        "icon-opacity": 0.85
+        "icon-opacity": 1
       }
     },
     {
@@ -342,7 +311,7 @@
       "filter": [
         "==",
         "thema",
-        "ontmoeting"
+        "aha"
       ],
       "layout": {
         "visibility": "none",
@@ -373,7 +342,7 @@
       }
     },
     {
-      "id": "punt_plaats",
+      "id": "punt_boom",
       "source": "punten",
       "type": "symbol",
       "minzoom": 14,
@@ -381,11 +350,11 @@
       "filter": [
         "==",
         "thema",
-        "dier"
+        "boom"
       ],
       "layout": {
         "visibility": "visible",
-        "icon-image": "plek",
+        "icon-image": "boom",
         "icon-size": [
           "interpolate",
           [
@@ -405,19 +374,58 @@
           16,
           1
         ],
-        "icon-allow-overlap": true,
-        "icon-rotate": [
-          "*",
-          [
-            "get",
-            "id"
-          ],
-          30
-        ]
+        "icon-allow-overlap": true
       },
       "paint": {
         "icon-opacity": 1
       }
+    },
+    {
+        "id": "punt_overig",
+        "source": "punten",
+        "type": "symbol",
+        "minzoom": 14,
+        "maxzoom": 22,
+        "filter": [
+            "==",
+            "thema",
+            "overig"
+        ],
+        "layout": {
+            "visibility": "visible",
+            "icon-image": "overig",
+            "icon-size": [
+                "interpolate",
+                [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                11,
+                0.01,
+                12,
+                0.4,
+                13,
+                0.7,
+                14,
+                0.9,
+                16,
+                1
+            ],
+            "icon-allow-overlap": true,
+            "icon-rotate": [
+                "*",
+                [
+                    "get",
+                    "id"
+                ],
+                30
+            ]
+        },
+        "paint": {
+            "icon-opacity": 1
+        }
     }
   ]
 }

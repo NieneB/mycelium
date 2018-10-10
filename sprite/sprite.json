@@ -1,16 +1,9 @@
 {
-  "black_1": {
+  "water": {
     "height": 300,
     "pixelRatio": 1,
     "width": 299,
     "x": 0,
-    "y": 0
-  },
-  "black_2": {
-    "height": 300,
-    "pixelRatio": 1,
-    "width": 299,
-    "x": 299,
     "y": 0
   },
   "circle_landscape": {
@@ -20,117 +13,12 @@
     "x": 598,
     "y": 0
   },
-  "circle_landscape_2": {
-    "height": 59,
-    "pixelRatio": 1,
-    "width": 59,
-    "x": 657,
-    "y": 0
-  },
-  "icon_1": {
-    "height": 37,
-    "pixelRatio": 1,
-    "width": 40,
-    "x": 716,
-    "y": 0
-  },
-  "icon_2": {
-    "height": 37,
-    "pixelRatio": 1,
-    "width": 40,
-    "x": 756,
-    "y": 0
-  },
-  "icon_3": {
-    "height":50,
-    "pixelRatio": 1,
-    "width": 50,
-    "x": 796,
-    "y": 0
-  },
-  "icon_4": {
-    "height": 37,
-    "pixelRatio": 1,
-    "width": 40,
-    "x": 836,
-    "y": 0
-  },
-  "lijn_1": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 70,
-    "x": 876,
-    "y": 0
-  },
-  "lijn_1 (another copy)": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 70,
-    "x": 946,
-    "y": 0
-  },
-  "lijn_1 (copy)": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 70,
-    "x": 1016,
-    "y": 0
-  },
-  "lijn_2": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 70,
-    "x": 1086,
-    "y": 0
-  },
-  "lijn_3": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 70,
-    "x": 598,
-    "y": 300
-  },
   "lijn_4": {
     "height": 35,
     "pixelRatio": 1,
     "width": 140,
     "x": 668,
     "y": 300
-  },
-  "lijn_5": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 140,
-    "x": 808,
-    "y": 300
-  },
-  "lijn_6": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 140,
-    "x": 948,
-    "y": 300
-  },
-  "lijn_7": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 140,
-    "x": 0,
-    "y": 600
-  },
-  "lijn_8": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 140,
-    "x": 140,
-    "y": 600
-  },
-  "lijn_9": {
-    "height": 35,
-    "pixelRatio": 1,
-    "width": 140,
-    "x": 280,
-    "y": 600
   },
   "ruitjes_1": {
     "height": 300,
@@ -139,39 +27,39 @@
     "x": 0,
     "y": 300
   },
-  "structure_1": {
-    "height": 300,
-    "pixelRatio": 1,
-    "width": 299,
-    "x": 299,
-    "y": 300
-  },
   "verdwijn":{
-    "height": 49,
+    "height": 48,
     "pixelRatio": 1,
-    "width": 49,
-    "x": 598,
-    "y": 61
+    "width": 45,
+    "x": 600,
+    "y": 211
   },
-  "plek": {
-    "height": 16,
+  "overig": {
+    "height": 48,
     "pixelRatio": 1,
-    "width": 15,
-    "x": 837,
-    "y": 0
+    "width": 47,
+    "x": 601,
+    "y": 163
   },
   "aha": {
-    "height": 34,
+    "height": 48,
     "pixelRatio": 1,
-    "width": 17,
-    "x": 852,
-    "y": 0
+    "width": 47,
+    "x": 600,
+    "y": 114
   },
   "ontboezeming": {
-    "height": 67,
+    "height": 46,
     "pixelRatio": 1,
-    "width": 69,
-    "x": 648,
-    "y": 59
+    "width": 47,
+    "x": 651,
+    "y": 195
+  },
+  "boom": {
+    "height": 58,
+    "pixelRatio": 1,
+    "width": 47,
+    "x": 651,
+    "y": 133
   }
 }
