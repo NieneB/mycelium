@@ -1,0 +1,11 @@
+baseurl: /mycelium
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout:
+
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*"

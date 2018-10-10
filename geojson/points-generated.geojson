@@ -1,0 +1,22 @@
+---
+---
+{
+  "type": "FeatureCollection",
+  "features": [
+    {% for location in site.data.locations %}
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": {{ location.coordinates | reverse | jsonify }}
+      },
+      "properties": {
+        "title": "{{ location.title }}"
+      }
+    }
+    {% if forloop.last == false %}
+    ,
+    {% endif %}
+    {% endfor %}
+  ]
+}

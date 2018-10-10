@@ -1,394 +1,423 @@
+---
+---
 {
-    "version": 8,
-    "name": "data",
-    "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-    "sprite": "https://raw.githubusercontent.com/bertspaan/mycelium/master/sprite/sprite_5",
-    "sources": {
-        "pdok": {
-            "type": "vector",
-            "scheme": "xyz",
-            "tiles":["https://geodata.nationaalgeoregister.nl/beta/topotiles/{z}/{x}/{y}.pbf"]
-        },
-        "punten":{
-            "type": "geojson",
-             "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/points.geojson"
-        },
-        "geojson_locaties": {
-            "type": "geojson",
-            "data": "https://raw.githubusercontent.com/NieneB/mycelium/master/geojson/locations.geojson"
-        }
+  "version": 8,
+  "name": "data",
+  "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
+  "sprite": "{{ site.url }}/sprite/sprite",
+  "sources": {
+    "pdok": {
+      "type": "vector",
+      "scheme": "xyz",
+      "tiles": [
+        "https://geodata.nationaalgeoregister.nl/beta/topotiles/{z}/{x}/{y}.pbf"
+      ]
     },
-    "layers": [
-        {
-            "id": "background",
-            "type": "background",
-            "paint":{
-                "background-pattern": "ruitjes_1"
-            }
-        },
-        {
-            "id": "terrein",
-            "source": "pdok",
-            "source-layer": "terrain",
-            "type": "symbol",
-            "minzoom": 11 ,
-            "maxzoom": 22,
-            "filter": [ "all",
-                [
-                    "in",
-                    "lod1",
-                    "natural"
-                ],
-                [
-                    "!=",
-                    "lod2",
-                    "agriculture"
-                ],
-                [
-                    "!=",
-                    "lod2",
-                    "open"
-                ]
-            ],
-            "layout": {
-                "visibility": "visible",
-                "icon-image": "circle_landscape",
-                "icon-size": [
-                    "interpolate",
-                    [
-                        "linear"
-                    ],
-                    [
-                        "zoom"
-                    ],
-                    11,
-                    0,
-                    12,
-                    0.3,
-                    14,
-                    0.9,
-                    15,
-                    1,
-                    16, 
-                    1.5,
-                    20,
-                    2
-                ],
-                "icon-allow-overlap": true,
-                "icon-rotate":["match",
-                    ["get", "lod2"],
-                    "high_vegetation",10,
-                    "low_vegetation", 230,
-                    "open", 300, 
-                    45
-                ],
-                "icon-rotation-alignment": "map",
-                "icon-pitch-alignment": "map"
-            },
-            "paint": {
-                "icon-opacity": 0.3
-            }
-        }, 
-        {
-            "id": "cirles",
-            "source": "geojson_locaties",
-            "type": "circle",
-            "minzoom": 8,
-            "maxzoom": 22,
-            "paint": {
-                "circle-pitch-scale": "map",
-                "circle-pitch-alignment": "map",
-                "circle-color": "#553333",
-                "circle-radius": [
-                    "interpolate",
-                    [
-                        "linear"
-                    ],
-                    [
-                        "zoom"
-                    ],
-                    8,
-                    20,
-                    12,
-                    150,
-                    13,
-                    200,
-                    14,
-                    250,
-                    15,
-                    550,
-                    16,
-                    1000
-                ],
-                "circle-opacity": [
-                    "interpolate",
-                    [
-                        "linear"
-                    ],
-                    [
-                        "zoom"
-                    ],
-                    10,0.4,
-                    11,0.2,
-                    12,0.1
-                ]
-            }
-        },
-        {
-            "id": "terrein_lijn",
-            "source": "pdok",
-            "source-layer": "terrain",
-            "type": "line",
-            "filter": ["in", "lod1",
-                "natural"
-            ],
-            "minzoom": 13,
-            "maxzoom": 22,
-            "layout": {
-                "visibility": "visible"
-            },
-            "paint": {
-                "line-color": "#ffffff",
-                "line-width": [
-                    "interpolate",
-                    [
-                        "linear"
-                    ],
-                    [
-                        "zoom"
-                    ],
-                    12,0,
-                    13,0.5,
-                    14,1,
-                    15,1.5,
-                    16, 2
-                ],
-                "line-blur": 1,
-                "line-offset": 0,
-                "line-opacity": 0.7
-            }
-        },
-        {
-            "id": "water",
-            "source": "pdok",
-            "source-layer": "water",
-            "type": "fill",
-            "minzoom": 0,
-            "maxzoom": 22,
-            "layout": {
-                "visibility": "visible"
-            },
-            "paint": {
-                "fill-pattern": "black_1",
-                "fill-opacity": 1
-            }
-        },
-      
-        {
-            "id": "punten-schaduw",
-            "source": "punten",
-            "type": "symbol",
-            "layout": {
-                "visibility": "none",
-                "icon-image": "icon_3",
-                "icon-size": [
-                    "interpolate",
-                    [
-                        "linear"
-                    ],
-                    [
-                        "zoom"
-                    ],
-                    11,
-                    0.01,
-                    12,
-                    0.4,
-                    13,
-                    0.7,
-                    14,
-                    0.9,
-                    16,
-                    1
-                ],
-                "icon-allow-overlap": true,
-                "icon-rotation-alignment": "map",
-                "icon-pitch-alignment": "map"
-            },
-            "paint": {
-                "icon-opacity": 0.8
-            }
-        },
-        {
-            "id": "punt_verdwijnen",
-            "source": "punten",
-            "type": "symbol",
-            "minzoom": 14,
-            "maxzoom": 22,
-            "filter": [
-                "==",
-                "thema",
-                "onverwacht"
-            ],
-            "layout": {
-                "visibility": "visible",
-                "icon-image": "verdwijn",
-                "icon-size": [
-                    "interpolate",
-                    [
-                        "linear"
-                    ],
-                    [
-                        "zoom"
-                    ],
-                    11,
-                    0.01,
-                    12,
-                    0.4,
-                    13,
-                    0.7,
-                    14,
-                    0.9,
-                    16,
-                    1
-                ],
-                "icon-allow-overlap": true,
-                "icon-rotate": [
-                    "*",
-                    [
-                        "get",
-                        "id"
-                    ],
-                    30
-                ]
-            },
-            "paint": {
-                "icon-opacity": 0.6
-            }
-        },
-        {
-            "id": "punt_ontboezeming",
-            "source": "punten",
-            "type": "symbol",
-            "minzoom": 14,
-            "maxzoom": 22,
-            "filter": [
-                "==",
-                "thema",
-                "route"
-            ],
-            "layout": {
-                "visibility": "visible",
-                "icon-image": "ontboezeming",
-                "icon-size": [
-                    "interpolate",
-                    [
-                        "linear"
-                    ],
-                    [
-                        "zoom"
-                    ],
-                    11,
-                    0.01,
-                    12,
-                    0.4,
-                    13,
-                    0.7,
-                    14,
-                    0.9,
-                    16,
-                    1
-                ],
-                "icon-allow-overlap": true,
-                "icon-rotate": [
-                    "*",
-                    [
-                        "get",
-                        "id"
-                    ],
-                    30
-                ]
-            },
-            "paint": {
-                "icon-opacity": 0.85
-            }
-        },
-        {
-            "id": "punt_aha",
-            "source": "punten",
-            "type": "symbol",
-            "minzoom": 14,
-            "maxzoom": 22,
-            "filter": [
-                "==",
-                "thema",
-                "ontmoeting"
-            ],
-            "layout": {
-                "visibility": "none",
-                "icon-image": "aha",
-                "icon-size": [
-                    "interpolate",
-                    [
-                        "linear"
-                    ],
-                    [
-                        "zoom"
-                    ],
-                    11,
-                    0.01,
-                    12,
-                    0.4,
-                    13,
-                    0.7,
-                    14,
-                    0.9,
-                    16,
-                    1
-                ],
-                "icon-allow-overlap": true
-            },
-            "paint": {
-                "icon-opacity": 1
-            }
-        },
-        {
-            "id": "punt_plaats",
-            "source": "punten",
-            "type": "symbol",
-            "minzoom": 14,
-            "maxzoom": 22,
-            "filter":[
-                "==", "thema", "dier"
-            ],
-            "layout": {
-                "visibility": "visible",
-                "icon-image": "plek",
-                "icon-size":[
-                    "interpolate",
-                    [
-                        "linear"
-                    ],
-                    [
-                        "zoom"
-                    ],
-                    11,
-                    0.01,
-                    12,
-                    0.4,
-                    13,
-                    0.7,
-                    14,
-                    0.9,
-                    16,1
-                ],
-                "icon-allow-overlap": true,
-                "icon-rotate":["*",["get", "id"],30]
-            },
-            "paint": {
-                "icon-opacity": 1
-            }
-        }
-        
-     
-    ]
+    "punten": {
+      "type": "geojson",
+      "data": "{{ site.url }}/geojson/points.geojson"
+    },
+    "geojson_locaties": {
+      "type": "geojson",
+      "data": "{{ site.url }}/geojson/locations.geojson"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-pattern": "ruitjes_1"
+      }
+    },
+    {
+      "id": "terrein",
+      "source": "pdok",
+      "source-layer": "terrain",
+      "type": "symbol",
+      "minzoom": 11,
+      "maxzoom": 22,
+      "filter": [
+        "all",
+        [
+          "in",
+          "lod1",
+          "natural"
+        ],
+        [
+          "!=",
+          "lod2",
+          "agriculture"
+        ],
+        [
+          "!=",
+          "lod2",
+          "open"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible",
+        "icon-image": "circle_landscape",
+        "icon-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          0,
+          12,
+          0.3,
+          14,
+          0.9,
+          15,
+          1,
+          16,
+          1.5,
+          20,
+          2
+        ],
+        "icon-allow-overlap": true,
+        "icon-rotate": [
+          "match",
+          [
+            "get",
+            "lod2"
+          ],
+          "high_vegetation",
+          10,
+          "low_vegetation",
+          230,
+          "open",
+          300,
+          45
+        ],
+        "icon-rotation-alignment": "map",
+        "icon-pitch-alignment": "map"
+      },
+      "paint": {
+        "icon-opacity": 0.3
+      }
+    },
+    {
+      "id": "cirles",
+      "source": "geojson_locaties",
+      "type": "circle",
+      "minzoom": 8,
+      "maxzoom": 22,
+      "paint": {
+        "circle-pitch-scale": "map",
+        "circle-pitch-alignment": "map",
+        "circle-color": "#553333",
+        "circle-radius": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          8,
+          20,
+          12,
+          150,
+          13,
+          200,
+          14,
+          250,
+          15,
+          550,
+          16,
+          1000
+        ],
+        "circle-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.4,
+          11,
+          0.2,
+          12,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "terrein_lijn",
+      "source": "pdok",
+      "source-layer": "terrain",
+      "type": "line",
+      "filter": [
+        "in",
+        "lod1",
+        "natural"
+      ],
+      "minzoom": 13,
+      "maxzoom": 22,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#ffffff",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          12,
+          0,
+          13,
+          0.5,
+          14,
+          1,
+          15,
+          1.5,
+          16,
+          2
+        ],
+        "line-blur": 1,
+        "line-offset": 0,
+        "line-opacity": 0.7
+      }
+    },
+    {
+      "id": "water",
+      "source": "pdok",
+      "source-layer": "water",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 22,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-pattern": "black_1",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "punten-schaduw",
+      "source": "punten",
+      "type": "symbol",
+      "layout": {
+        "visibility": "none",
+        "icon-image": "icon_3",
+        "icon-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          0.01,
+          12,
+          0.4,
+          13,
+          0.7,
+          14,
+          0.9,
+          16,
+          1
+        ],
+        "icon-allow-overlap": true,
+        "icon-rotation-alignment": "map",
+        "icon-pitch-alignment": "map"
+      },
+      "paint": {
+        "icon-opacity": 0.8
+      }
+    },
+    {
+      "id": "punt_verdwijnen",
+      "source": "punten",
+      "type": "symbol",
+      "minzoom": 14,
+      "maxzoom": 22,
+      "filter": [
+        "==",
+        "thema",
+        "onverwacht"
+      ],
+      "layout": {
+        "visibility": "visible",
+        "icon-image": "verdwijn",
+        "icon-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          0.01,
+          12,
+          0.4,
+          13,
+          0.7,
+          14,
+          0.9,
+          16,
+          1
+        ],
+        "icon-allow-overlap": true,
+        "icon-rotate": [
+          "*",
+          [
+            "get",
+            "id"
+          ],
+          30
+        ]
+      },
+      "paint": {
+        "icon-opacity": 0.6
+      }
+    },
+    {
+      "id": "punt_ontboezeming",
+      "source": "punten",
+      "type": "symbol",
+      "minzoom": 14,
+      "maxzoom": 22,
+      "filter": [
+        "==",
+        "thema",
+        "route"
+      ],
+      "layout": {
+        "visibility": "visible",
+        "icon-image": "ontboezeming",
+        "icon-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          0.01,
+          12,
+          0.4,
+          13,
+          0.7,
+          14,
+          0.9,
+          16,
+          1
+        ],
+        "icon-allow-overlap": true,
+        "icon-rotate": [
+          "*",
+          [
+            "get",
+            "id"
+          ],
+          30
+        ]
+      },
+      "paint": {
+        "icon-opacity": 0.85
+      }
+    },
+    {
+      "id": "punt_aha",
+      "source": "punten",
+      "type": "symbol",
+      "minzoom": 14,
+      "maxzoom": 22,
+      "filter": [
+        "==",
+        "thema",
+        "ontmoeting"
+      ],
+      "layout": {
+        "visibility": "none",
+        "icon-image": "aha",
+        "icon-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          0.01,
+          12,
+          0.4,
+          13,
+          0.7,
+          14,
+          0.9,
+          16,
+          1
+        ],
+        "icon-allow-overlap": true
+      },
+      "paint": {
+        "icon-opacity": 1
+      }
+    },
+    {
+      "id": "punt_plaats",
+      "source": "punten",
+      "type": "symbol",
+      "minzoom": 14,
+      "maxzoom": 22,
+      "filter": [
+        "==",
+        "thema",
+        "dier"
+      ],
+      "layout": {
+        "visibility": "visible",
+        "icon-image": "plek",
+        "icon-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          0.01,
+          12,
+          0.4,
+          13,
+          0.7,
+          14,
+          0.9,
+          16,
+          1
+        ],
+        "icon-allow-overlap": true,
+        "icon-rotate": [
+          "*",
+          [
+            "get",
+            "id"
+          ],
+          30
+        ]
+      },
+      "paint": {
+        "icon-opacity": 1
+      }
+    }
+  ]
 }

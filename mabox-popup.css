@@ -1,13 +1,13 @@
 .mapboxgl-popup {
-        max-width: 400px;
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        
-    }
+  max-width: 400px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
 .mapboxgl-popup-tip {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .mapboxgl-popup-content {
-    color: #ffffff;
-    background-color: #535353;
+  color: #ffffff;
+  background-color: #535353;
 }
