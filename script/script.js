@@ -2,8 +2,7 @@ if (!mapboxgl.supported()) {
   alert('Your browser does not support Mapbox GL')
 }
 
-var distance = 0
-var maxDistance = 2000
+var maxDistance = 1200
 
 var map = new mapboxgl.Map({
   container: 'map',
@@ -109,21 +108,22 @@ attribution._updateAttributions = function () {
 
 map.addControl(attribution, 'bottom-left')
 
+var currentDistance = 0
 function step () {
-  distance = distance + 1
+  currentDistance = currentDistance + 1
 
-  var lineWidth = getLineWidth(distance)
+  var lineWidth = getLineWidth(currentDistance)
 
   map.setPaintProperty('geojson-shadow', 'line-width', lineWidth)
   map.setPaintProperty('geojson', 'line-width', lineWidth)
 
-  if (distance <= maxDistance) {
+  if (currentDistance <= maxDistance) {
     window.requestAnimationFrame(step)
   }
 }
 
 function startAnimation () {
-  distance = 0
+  currentDistance = 0
   window.requestAnimationFrame(step)
 }
 
