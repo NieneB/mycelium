@@ -201,7 +201,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-pattern": "black_1",
+        "fill-pattern": "water",
         "fill-opacity": 1
       }
     },
