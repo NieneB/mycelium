@@ -9,3 +9,28 @@ body {
   bottom: 0;
   width: 100%;
 }
+
+.mapboxgl-popup {
+  max-width: 400px;
+  /*font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;*/
+}
+
+.mapboxgl-popup img {
+  display: block;
+  width: 150px;
+  margin-bottom: 1em;
+}
+
+.mapboxgl-popup-content h3 {
+  margin-top: 0;
+}
+
+.mapboxgl-popup-content,
+.mapboxgl-popup-content a,
+.mapboxgl-popup-content a:visited {
+  color: #111;
+}
+
+.mapboxgl-popup-content {
+  background-color: #fff;
+}

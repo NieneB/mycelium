@@ -3,7 +3,7 @@ if (!mapboxgl.supported()) {
 }
 
 var distance = 0
-var maxDistance = 1000
+var maxDistance = 2000
 
 var map = new mapboxgl.Map({
   container: 'map',
@@ -18,16 +18,28 @@ var map = new mapboxgl.Map({
   hash: true
 })
 
-var lineStyle = (meters) => ['interpolate',
-  ['cubic-bezier',
-    0.42,
-    0,
-    0.5,
-    0.7],
-  ['get', 'distance'],
-  0, 7.5,
-  meters, 0
-]
+function createPopupHtml (feature) {
+  var properties = feature.properties
+
+  return '<h3>' + properties.title + '</h3>'
+    + '<a href="' + properties.url + '" target="_blank">'
+    + (properties.image ? '<img src="' + properties.image + '"/>' : '')
+    + 'Lees verder…'
+    + '</a>'
+}
+
+function getLineWidth (meters) {
+  return ['interpolate',
+    ['cubic-bezier',
+      0.42,
+      0,
+      0.5,
+      0.7],
+    ['get', 'distance'],
+    0, 7.5,
+    meters, 0
+  ]
+}
 
 map.on('load', function () {
   fetch('geojson/mycelium-segmentized.geojson')
@@ -39,7 +51,9 @@ map.on('load', function () {
         data: geojson
       })
 
-       map.addLayer({
+      var lineWidth = getLineWidth(0)
+
+      map.addLayer({
         id: 'geojson-shadow',
         type: 'line',
         source: 'geojson',
@@ -53,7 +67,7 @@ map.on('load', function () {
           'line-translate': [3, 3],
           'line-color': '#535353',
           'line-opacity': 0.2,
-          'line-width': 4,
+          'line-width': 0,
           'line-blur': 5
         }
       }, 'punten-schaduw')
@@ -71,13 +85,14 @@ map.on('load', function () {
         paint: {
           'line-color': '#ee0000',
           'line-opacity': 0.8,
-          'line-width': 1,
+          'line-width': 0,
           'line-blur': 5,
           'line-pattern': 'lijn_4'
         }
       }, 'punten-schaduw')
 
-      startAnimation()
+      // Start animation 2 seconds after map is loaded:
+      setTimeout(startAnimation, 2000)
     }).catch(function (err) {
       console.log('parsing failed', err)
     })
@@ -87,16 +102,20 @@ map.addControl(new mapboxgl.FullscreenControl())
 
 var attribution = new mapboxgl.AttributionControl()
 attribution._updateAttributions = function () {
-  this._container.innerHTML = "&copy; <a href=\'http://www.bertspaan.nl\' target=\'_blank\'>Bert</a> &#38; <a href=\'http://nieneb.nl\' target=\'_blank\'>Niene</a> | Data <a href=\'https://github.com/PDOK/vectortiles-bgt-brt\' target=\'_blank\'>PDOK</a>"
+  this._container.innerHTML = '&copy; <a href=\'https://www.bertspaan.nl\' target=\'_blank\'>Bert Spaan</a> &amp;'
+   + ' <a href=\'http://nieneb.nl\' target=\'_blank\'>Niene Boeijen</a>'
+   + '| Data uit <a href=\'https://github.com/PDOK/vectortiles-bgt-brt\' target=\'_blank\'>PDOK</a>'
 }
 
 map.addControl(attribution, 'bottom-left')
 
 function step () {
-  distance = distance += 25
+  distance = distance + 1
 
-  map.setPaintProperty('geojson-shadow', 'line-width', lineStyle(distance))
-  map.setPaintProperty('geojson', 'line-width', lineStyle(distance))
+  var lineWidth = getLineWidth(distance)
+
+  map.setPaintProperty('geojson-shadow', 'line-width', lineWidth)
+  map.setPaintProperty('geojson', 'line-width', lineWidth)
 
   if (distance <= maxDistance) {
     window.requestAnimationFrame(step)
@@ -108,35 +127,28 @@ function startAnimation () {
   window.requestAnimationFrame(step)
 }
 
-// When a click event occurs on a feature in the places layer, open a popup at the
-// location of the feature, with description HTML from its properties.
-map.on('click', 'punten', function (e) {
-  var coordinates = e.features[0].geometry.coordinates.slice()
-  var description = e.features[0].properties.titel
-  // Ensure that if the map is zoomed out such that multiple
-  // copies of the feature are visible, the popup appears
-  // over the copy being pointed to.
-  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360
+map.on('click', 'punten', function (event) {
+  var coordinates = event.features[0].geometry.coordinates.slice()
+  var html = createPopupHtml(event.features[0])
+
+  while (Math.abs(event.lngLat.lng - coordinates[0]) > 180) {
+    coordinates[0] += event.lngLat.lng > coordinates[0] ? 360 : -360
   }
 
   new mapboxgl.Popup({
-    // anchor: 'bottom-left',
     closeButton: false,
     closeOnClick: true,
-    offset: [0, -10]
+    offset: [0, -20]
   })
     .setLngLat(coordinates)
-    .setHTML(description)
+    .setHTML(html)
     .addTo(map)
 })
 
-// Change the cursor to a pointer when the mouse is over the places layer.
 map.on('mouseenter', 'punten', function () {
   map.getCanvas().style.cursor = 'pointer'
 })
 
-// Change it back to a pointer when it leaves.
 map.on('mouseleave', 'punten', function () {
   map.getCanvas().style.cursor = ''
 })
