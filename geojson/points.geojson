@@ -13,6 +13,7 @@
       "properties": {
         "title": "{{ point.title }}",
         "theme": "{{ point.theme }}",
+        "image": "{{ point.image }}",
         "url": "{{ point.url }}"
       }
     }
