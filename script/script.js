@@ -2,16 +2,21 @@ if (!mapboxgl.supported()) {
   alert('Your browser does not support Mapbox GL')
 }
 
+var FPS = 16
+var animationDuration = 20000
 var maxDistance = 1200
+var animationWait = 500 // wait with playing animation after loading map, in milliseconds
 
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'style/style.json',
   center: [
-    4.9126,
-    52.3673
+    4.90706,
+    52.35663
   ],
-  zoom: 13,
+  zoom: 13.2,
+  bearing: 10,
+  pitch: 58,
   minZoom: 12,
   maxZoom: 17,
   hash: true
@@ -20,7 +25,8 @@ var map = new mapboxgl.Map({
 function createPopupHtml (feature) {
   var properties = feature.properties
 
-  return '<h3>' + properties.title + '</h3>'
+  return (properties.area ? '<div>' + properties.area + ':</div>' : '')
+    + '<h3>' + properties.title + '</h3>'
     + '<a href="' + properties.url + '" target="_blank">'
     + (properties.image ? '<img src="' + properties.image + '"/>' : '')
     + 'Lees verder…'
@@ -30,10 +36,7 @@ function createPopupHtml (feature) {
 function getLineWidth (meters) {
   return ['interpolate',
     ['cubic-bezier',
-      0.42,
-      0,
-      0.5,
-      0.7],
+      .68, 0, .71, .14],
     ['get', 'distance'],
     0, 7.5,
     meters, 0
@@ -90,41 +93,102 @@ map.on('load', function () {
         }
       }, 'punten-schaduw')
 
-      // Start animation 2 seconds after map is loaded:
-      setTimeout(startAnimation, 2000)
+      // Start animation after map is loaded:
+      setTimeout(function () {
+        startAnimation(FPS)
+      }, animationWait)
+      setTimeout(showMarkers, animationWait + 8000)
     }).catch(function (err) {
       console.log('parsing failed', err)
     })
 })
 
+
+function AnimationControl () {
+  this.onAdd = function (map) {
+    this.map = map
+
+    this.container = document.createElement('div')
+    this.container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group'
+
+    var button = document.createElement('button')
+    button.className = 'mapboxgl-ctrl-icon mapboxgl-ctrl-animation'
+    button.setAttribute('aria-label', 'Replay animation')
+
+    button.addEventListener('click', function () {
+      startAnimation(FPS)
+    })
+
+    this.container.appendChild(button)
+    return this.container
+  }
+  this.onRemove = function () {
+    this.container.parentNode.removeChild(this.container)
+    this.map = undefined
+  }
+}
+
 map.addControl(new mapboxgl.FullscreenControl())
+map.addControl(new mapboxgl.NavigationControl())
+map.addControl(new AnimationControl())
 
 var attribution = new mapboxgl.AttributionControl()
 attribution._updateAttributions = function () {
   this._container.innerHTML = '&copy; <a href=\'https://www.bertspaan.nl\' target=\'_blank\'>Bert Spaan</a> &amp;'
    + ' <a href=\'http://nieneb.nl\' target=\'_blank\'>Niene Boeijen</a>'
-   + '| Data uit <a href=\'https://github.com/PDOK/vectortiles-bgt-brt\' target=\'_blank\'>PDOK</a>'
+   + ' | Data uit <a href=\'https://github.com/PDOK/vectortiles-bgt-brt\' target=\'_blank\'>PDOK</a>'
 }
 
 map.addControl(attribution, 'bottom-left')
 
+var startTime
+var then
+var fpsInterval
+var animating = false
+
 var currentDistance = 0
-function step () {
-  currentDistance = currentDistance + 1
-
-  var lineWidth = getLineWidth(currentDistance)
-
-  map.setPaintProperty('geojson-shadow', 'line-width', lineWidth)
-  map.setPaintProperty('geojson', 'line-width', lineWidth)
-
+function animate (interval) {
   if (currentDistance <= maxDistance) {
-    window.requestAnimationFrame(step)
+    window.requestAnimationFrame(function () {
+      animate(interval)
+    })
+  } else {
+    animating = false
+  }
+
+  var now = Date.now()
+  var elapsed = now - then
+
+  if (elapsed > interval) {
+    then = now - (elapsed % interval)
+
+    var increment = maxDistance / (animationDuration / interval)
+    currentDistance = currentDistance + increment
+
+    var lineWidth = getLineWidth(currentDistance)
+
+    map.setPaintProperty('geojson-shadow', 'line-width', lineWidth)
+    map.setPaintProperty('geojson', 'line-width', lineWidth)
   }
 }
 
-function startAnimation () {
+function startAnimation (fps) {
+  var interval = 1000 / fps
+
   currentDistance = 0
-  window.requestAnimationFrame(step)
+
+  then = Date.now()
+  startTime = then
+
+  if (!animating) {
+    animating = true
+    animate(interval)
+  }
+}
+
+function showMarkers () {
+  map.setPaintProperty('punten', 'icon-opacity', 1)
+  map.setPaintProperty('punten-schaduw', 'circle-opacity', 0.7)
 }
 
 map.on('click', 'punten', function (event) {
