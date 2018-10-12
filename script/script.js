@@ -34,12 +34,34 @@ function createPopupHtml (feature) {
 }
 
 function getLineWidth (meters) {
-  return ['interpolate',
-    ['cubic-bezier',
-      .68, 0, .71, .14],
-    ['get', 'distance'],
-    0, 7.5,
-    meters, 0
+  return ["interpolate",
+      [
+        "linear"
+      ],
+      [
+        "zoom"
+      ],
+      12,
+      ['interpolate',
+        ['cubic-bezier', .68, 0, .71, .14],
+        ['get', 'distance'],
+        0, 1,
+        meters, 0
+      ],
+      15,
+      ['interpolate',
+        ['cubic-bezier', .68, 0, .71, .14],
+        ['get', 'distance'],
+        0, 7.5,
+        meters, 0
+      ],
+      17,
+      ['interpolate',
+        ['cubic-bezier', .68, 0, .71, .14],
+        ['get', 'distance'],
+        0, 10,
+        meters, 0
+      ]
   ]
 }
 
@@ -188,7 +210,6 @@ function startAnimation (fps) {
 
 function showMarkers () {
   map.setPaintProperty('punten', 'icon-opacity', 1)
-  map.setPaintProperty('punten-schaduw', 'circle-opacity', 0.7)
 }
 
 map.on('click', 'punten', function (event) {
