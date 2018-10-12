@@ -11,6 +11,7 @@
         "coordinates": {{ point.coordinates | reverse | jsonify }}
       },
       "properties": {
+        "area": "{{ point.area }}",
         "title": "{{ point.title }}",
         "theme": "{{ point.theme }}",
         "image": "{{ point.image }}",
