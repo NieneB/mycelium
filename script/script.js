@@ -72,7 +72,7 @@ map.on('load', function () {
           'line-width': 0,
           'line-blur': 5
         }
-      }, 'punten-schaduw')
+      }, 'punten')
 
       map.addLayer({
         id: 'geojson',
@@ -91,7 +91,7 @@ map.on('load', function () {
           'line-blur': 5,
           'line-pattern': 'lijn_4'
         }
-      }, 'punten-schaduw')
+      }, 'punten')
 
       // Start animation after map is loaded:
       setTimeout(function () {
