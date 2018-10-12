@@ -15,7 +15,7 @@
     },
     "punten": {
       "type": "geojson",
-      "data": "{{ "/geojson/points.geojson" | absolute_url }}" 
+      "data": "{{ "/geojson/points.geojson" | absolute_url }}"
     },
     "areas": {
       "type": "geojson",
@@ -215,7 +215,10 @@
         "visibility": "visible"
       },
       "paint": {
-        "circle-opacity": 1,
+        "circle-opacity": 0,
+        "circle-opacity-transition": {
+          "duration": 1000
+        },
         "circle-color": "#000",
         "circle-radius": 35,
         "circle-blur": 1,
@@ -261,7 +264,10 @@
             "icon-allow-overlap": true
       },
       "paint": {
-        "icon-opacity": 1
+        "icon-opacity": 0,
+        "icon-opacity-transition": {
+          "duration": 1000
+        }
       }
     }
   ]
