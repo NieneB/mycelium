@@ -100,8 +100,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.913957118988037,
-          52.368872053736126
+          4.91563,
+          52.36624
         ]
       }
     },
@@ -154,6 +154,19 @@
         "coordinates": [
           5.033175945281982,
           52.432414566210944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Beatrixpark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.88249,
+          52.34237
         ]
       }
     }
