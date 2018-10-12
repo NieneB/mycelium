@@ -45,7 +45,7 @@ function getLineWidth (meters) {
       ['interpolate',
         ['cubic-bezier', .68, 0, .71, .14],
         ['get', 'distance'],
-        0, 1,
+        0, 2,
         meters, 0
       ],
       15.5,
