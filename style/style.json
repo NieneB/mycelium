@@ -219,7 +219,7 @@
           "match",
           [
             "get",
-            "thema"
+            "theme"
           ],
           "aha",
           "bottom-left",
