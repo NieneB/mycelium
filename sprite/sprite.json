@@ -61,5 +61,40 @@
     "width": 47,
     "x": 651,
     "y": 133
+  },
+  "verdwijn_2": {
+    "height": 42,
+    "pixelRatio": 1,
+    "width": 66,
+    "x": 865,
+    "y": 245
+  },
+  "boom_2": {
+    "height": 46,
+    "pixelRatio": 1,
+    "width": 68,
+    "x": 1026,
+    "y": 214
+  },
+  "aha_2": {
+    "height": 66,
+    "pixelRatio": 1,
+    "width": 90,
+    "x": 856,
+    "y": 120
+  },
+  "ontboezeming_2": {
+    "height": 56,
+    "pixelRatio": 1,
+    "width": 70,
+    "x": 779,
+    "y": 206
+  },
+  "overig_2": {
+    "height": 67,
+    "pixelRatio": 1,
+    "width": 83,
+    "x": 1034,
+    "y": 111
   }
 }

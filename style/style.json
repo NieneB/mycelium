@@ -206,26 +206,6 @@
       }
     },
     {
-      "id": "punten-schaduw",
-      "source": "punten",
-      "type": "circle",
-      "minzoom": 10,
-       "maxzoom": 22,
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "circle-opacity": 0,
-        "circle-opacity-transition": {
-          "duration": 1000
-        },
-        "circle-color": "#000",
-        "circle-radius": 35,
-        "circle-blur": 1,
-        "circle-translate":[5,5]
-      }
-    },
-    {
       "id": "punten",
       "source": "punten",
       "type": "symbol",
@@ -233,14 +213,30 @@
       "maxzoom": 22,
       "layout": {
         "visibility": "visible",
+        "icon-anchor": [
+          "match",
+          [
+            "get",
+            "thema"
+          ],
+          "aha",
+          "bottom-left",
+          "verdwijn",
+          "bottom-left",
+          "ontboezeming",
+          "bottom",
+          "boom",
+          "bottom",
+          "bottom"
+        ],
         "icon-image": [
             "match",
                 ["get", "theme"],
-                "aha","aha",
-                "verdwijn","verdwijn",
-                "ontboezeming","ontboezeming",
-                "boom","boom",
-                "overig"
+                "aha","aha_2",
+                "verdwijn","verdwijn_2",
+                "ontboezeming","ontboezeming_2",
+                "boom","boom_2",
+                "overig_2"
             ],
             "icon-size": [
                 "interpolate",
@@ -253,12 +249,14 @@
                 11,
                 0.01,
                 12,
-                0.4,
+                0.3,
                 13,
-                0.7,
+                0.4,
                 14,
-                0.9,
+                0.5,
                 16,
+                0.8,
+                17,
                 1
             ],
             "icon-allow-overlap": true
