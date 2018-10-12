@@ -35,11 +35,11 @@
     "y": 211
   },
   "overig": {
-    "height": 48,
+    "height": 46,
     "pixelRatio": 1,
-    "width": 47,
-    "x": 601,
-    "y": 163
+    "width": 68,
+    "x": 942,
+    "y": 57
   },
   "aha": {
     "height": 26,
@@ -77,11 +77,11 @@
     "y": 214
   },
   "aha_2": {
-    "height": 66,
+    "height": 43,
     "pixelRatio": 1,
-    "width": 90,
-    "x": 856,
-    "y": 120
+    "width": 64,
+    "x": 857,
+    "y": 67
   },
   "ontboezeming_2": {
     "height": 56,
@@ -91,10 +91,10 @@
     "y": 206
   },
   "overig_2": {
-    "height": 67,
+    "height": 46,
     "pixelRatio": 1,
-    "width": 83,
-    "x": 1034,
-    "y": 111
+    "width": 68,
+    "x": 942,
+    "y": 57
   }
 }
