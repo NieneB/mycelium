@@ -34,41 +34,38 @@ function createPopupHtml (feature) {
 }
 
 function getLineWidth (meters) {
-  return ["interpolate",
-      [
-        "linear"
-      ],
-      [
-        "zoom"
-      ],
+  var bezier = ['cubic-bezier', .68, 0, .71, .14]
+
+  return ['interpolate',
+      ['linear'],
+      ['zoom'],
       12,
-      ['interpolate',
-        ['cubic-bezier', .68, 0, .71, .14],
+      ['interpolate', bezier,
         ['get', 'distance'],
-        0, 2,
+        0, 3,
         meters, 0
       ],
       15.5,
-      ['interpolate',
-        ['cubic-bezier', .68, 0, .71, .14],
+      ['interpolate', bezier,
         ['get', 'distance'],
-        0, 7.5,
+        0, 8,
         meters, 0
       ],
       17,
-      ['interpolate',
-        ['cubic-bezier', .68, 0, .71, .14],
+      ['interpolate', bezier,
         ['get', 'distance'],
-        0, 10,
+        0, 11,
         meters, 0
       ]
   ]
 }
 
 map.on('load', function () {
-  fetch('geojson/mycelium-segmentized.geojson')
+  fetch('geojson/mycelium.geojson')
     .then(function (response) {
       return response.json()
+    }).then(function (geojson) {
+      return segmentize(geojson, 200)
     }).then(function (geojson) {
        map.addSource('geojson', {
         type: 'geojson',
@@ -237,3 +234,36 @@ map.on('mouseenter', 'punten', function () {
 map.on('mouseleave', 'punten', function () {
   map.getCanvas().style.cursor = ''
 })
+
+function segmentize (geojson, segmentLength) {
+  var features = []
+
+  turf.meta.featureEach(geojson, function (feature) {
+    turf.meta.segmentEach(feature, function (segment) {
+      var origin = feature.properties.routeOrigin
+      var chunks = turf.lineChunk(segment, segmentLength / 1000, {
+        units: 'kilometers'
+      })
+
+      chunks.features.forEach(function (chunk) {
+        var distance = Math.round(turf.pointToLineDistance.default(origin, chunk, {
+          units: 'kilometers'
+        }) * 1000)
+
+        features.push({
+          type: 'Feature',
+          properties: {
+            distance,
+            title: feature.properties.title
+          },
+          geometry: chunk.geometry
+        })
+      })
+    })
+  })
+
+  return {
+    type: 'FeatureCollection',
+    features
+  }
+}
