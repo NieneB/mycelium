@@ -43,3 +43,24 @@
   image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc436140d9297cb389f5c8d/1539623607151/Ankie-Verdwijnplek.JPG?format=200w
   url: https://www.paradijsindepolder.nl/blog/2018/10/11/verdwijnen
   coordinates: [52.36729, 4.91897]
+
+- title: Ome Theo
+  area: Marineterrein
+  theme: verdwijnplek
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc641c1c830256d9fcde16b/1539719624215/THEO.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/theosverdwijnplek
+  coordinates: [52.373221, 4.916003]
+
+- title: Verdwijnen in de stad
+  area: Mediamatic aan het spoor
+  theme: verdwijnplek
+  image: img/posts/verdwijnen-in-de-stad.jpg
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/vluchteling
+  coordinates: [52.376470, 4.913932]
+
+- title: Schaduwen op de muur
+  area: Marineterrein
+  theme: ontboezeming
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc642331905f47be6eddca6/1539719746856/IMG_5266.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/schaduwenopmuur
+  coordinates: [52 37 3620 - 4919474]
