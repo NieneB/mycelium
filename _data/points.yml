@@ -46,14 +46,14 @@
 
 - title: Ome Theo
   area: Marineterrein
-  theme: verdwijnplek
+  theme: verdwijn
   image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc641c1c830256d9fcde16b/1539719624215/THEO.jpg?format=200w
   url: https://www.paradijsindepolder.nl/blog/2018/10/11/theosverdwijnplek
   coordinates: [52.373221, 4.916003]
 
 - title: Verdwijnen in de stad
   area: Mediamatic aan het spoor
-  theme: verdwijnplek
+  theme: verdwijn
   image: img/posts/verdwijnen-in-de-stad.jpg
   url: https://www.paradijsindepolder.nl/blog/2018/10/11/vluchteling
   coordinates: [52.376470, 4.913932]
