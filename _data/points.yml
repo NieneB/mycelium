@@ -63,4 +63,25 @@
   theme: ontboezeming
   image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc642331905f47be6eddca6/1539719746856/IMG_5266.JPG?format=200w
   url: https://www.paradijsindepolder.nl/blog/2018/10/11/schaduwenopmuur
-  coordinates: [52 37 3620 - 4919474]
+  coordinates: [52.373620, 4.919474]
+
+- title: Liefde op het eerste gezicht
+  area: Entrepotdok
+  theme: overig
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc83357b208fca636b89be4/1539847023330/IMG_5034.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/liefdevoordebuurt
+  coordinates: [52.368946, 4.918357]
+
+- title: Zien, horen, ruiken
+  area: Entrepotdok
+  theme: aha
+  image:
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/stadssafari2
+  coordinates: [52.369130, 4.915524]
+
+- title: Stadssafari
+  area: Entrepotdok
+  theme: ontboezeming
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc82e1f53450a52e8f5347b/1539845669579/Iblad-Safari.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/stadssafari1
+  coordinates: [52.370257, 4.911962]
