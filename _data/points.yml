@@ -85,3 +85,66 @@
   image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc82e1f53450a52e8f5347b/1539845669579/Iblad-Safari.JPG?format=200w
   url: https://www.paradijsindepolder.nl/blog/2018/10/11/stadssafari1
   coordinates: [52.370257, 4.911962]
+
+- title: Glimlach aan het water
+  area: Rivierenbuurt
+  theme: overig
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9d6f09140b752240eedf2/1539954442045/natuur-quote1.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/glimlach
+  coordinates: [52.347908, 4.893341]
+
+- title: Hanggasten
+  area: Oud Zuid/De Pijp
+  theme: verdwijn
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9c9dcb208fcae3209d3e7/1539951219980/IMG_5497.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/hanggasten
+  coordinates: [52.354743, 4.896023]
+
+- title: Kunnen de dingen spreken?
+  area: Beatrixpark
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9c3ddb208fcae3209a69e/1539949592448/IMG_4955.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/hartopen-w25d4
+  coordinates: [52.34243, 4.881228]
+
+- title: Stadsvijgen
+  area: Zuid/Beatrixpark
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9bfbba4222ffd16505413/1539948598974/stadsvijg.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/stadsvijg
+  coordinates: [52.346880, 4.885216]
+
+- title: Bomengek
+  area: Rivierenbuurt
+  theme: boom
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9c2cab208fcae32099f38/1539949274502/410iep.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/bomengek
+  coordinates: [52.345629, 4.896228]
+
+- title: Uitzichten waar je hart van opent
+  area: De Baarsjes/Oud-West
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9c06f71c10be3da14ae3d/1539949464474/IMG_5549.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/hartopen
+  coordinates: [52.363234, 4.859169]
+
+- title: Planten ruilen en mispels rapen
+  area: Oud-Zuid
+  theme: overig
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9bc34104c7b30a753fe48/1539948261949/IMG_5489.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/ruilhoek1
+  coordinates: [52.353934, 4.894317]
+
+- title: Wroeten in de aarde
+  area: Oud-Zuid/Rivierenbuurt
+  theme: ontboezeming
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9b7eaeef1a1a7f4960a9a/1539946696702/IMG_4993.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/12/wroeteninaarde
+  coordinates: [52.349633, 4.894666]
+
+- title: Blauwe reigers
+  area: Oud Zuid
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9be0353450a722c1d917f/1539948067961/IMG_4870.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/13/blauwereigers
+  coordinates: [52.351809, 4.900575]
