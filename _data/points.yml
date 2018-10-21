@@ -148,3 +148,59 @@
   image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bc9be0353450a722c1d917f/1539948067961/IMG_4870.jpg?format=200w
   url: https://www.paradijsindepolder.nl/blog/2018/10/13/blauwereigers
   coordinates: [52.351809, 4.900575]
+
+- title: Welk uitzicht kies jij?
+  area: Diemerscheg
+  theme: ontboezeming
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc212a15fcc0be3c56cb40/1540104500120/?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/uitzicht
+  coordinates: [52.323319, 5.007619]
+
+- title: Deep map-experiment in Diemerscheg
+  area: Diemerscheg
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc1ed1085229820cd28774/1540103901972/DeepMap2.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/deepmapdiemerscheg
+  coordinates: [52.307736, 5.012082]
+
+- title: Anna’s ruigte
+  area: Watergraafsmeer/Science Park
+  theme: verdwijn
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc13c571c10b128271f39c/1540101092852/Anna%27sRuigte.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/annatuin
+  coordinates: [52.354408, 4.951734]
+
+- title: Machine Wilderness
+  area: Watergraafsmeer/Science Park
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc3bf5b208fc15b70a9b89/1540111365658/MachineWilderness.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/machinewilderness
+  coordinates: [52.356396, 4.962343]
+
+- title: Houden biologen wel van natuur?
+  area: Watergraafsmeer/Science park
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc0fc88165f55241f5692e/1540100056497/Theun-bloem.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/houdenbiologen
+  coordinates: [52.354293, 4.954683]
+
+- title: Nemen data ons leven over?
+  area: Watergraafsmeer/Science park
+  theme: overig
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc12af71c10b128271edf4/1540100800546/DatacentrumScP.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/datacentrum
+  coordinates: [52.354824, 4.961453]
+
+- title: Glimlach aan het water
+  area: Rivierenbuurt
+  theme: boom
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc3165e2c483bd4542cf0d/1540108680970/spreuk-totaal.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/glimlachaanwater
+  coordinates: [52,48041, 4.889240]
+
+- title: Spiegel met landschap
+  area: Watergraafsmeer
+  theme: verdwijn
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc3314a4222f55bdcfceb7/1540109096645/Spiegel-bomenKruislaan.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/spiegelafvalbak
+  coordinates: [52.348183, 4.932972]
