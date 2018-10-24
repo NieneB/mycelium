@@ -189,7 +189,7 @@
   theme: boom
   image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc3165e2c483bd4542cf0d/1540108680970/spreuk-totaal.JPG?format=200w
   url: https://www.paradijsindepolder.nl/blog/2018/10/11/glimlachaanwater
-  coordinates: [52,48041, 4.889240]
+  coordinates: [52.348211, 4.888100]
 
 - title: Spiegel met landschap
   area: Watergraafsmeer
@@ -197,3 +197,45 @@
   image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcc3314a4222f55bdcfceb7/1540109096645/Spiegel-bomenKruislaan.JPG?format=200w
   url: https://www.paradijsindepolder.nl/blog/2018/10/11/spiegelafvalbak
   coordinates: [52.348183, 4.932972]
+
+- title: Stilvallen in de stad
+  area: Centrum
+  theme: verdwijn
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcefc288165f5dee7242edc/1540291674045/Pluis-stilvallen.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/stilteinstad
+  coordinates: [52.363463, 4.871258]
+
+- title: Bomen met ogen en oren
+  area: Diemerbos
+  theme: boom
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcee5f6104c7b508ab031d0/1540286025471/Abeel-Oog.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/bomenogen
+  coordinates: [52.325682, 5.008245]
+
+- title: Uitzicht met hartje
+  area: Rivierenbuurt
+  theme: overig
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bcee88ce5e5f08505b21f34/1540286642357/IMG_5497.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/uitzichtmethart
+  coordinates: [52.347326, 4.912712]
+
+- title: Vurige bomen
+  area: Rivierenbuurt
+  theme: boom
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bceea5a71c10b8fc62a6f24/1540287092459/EsdoornHerfstJeker.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/vurigeesdoorn
+  coordinates: [52.345812, 4.897048]
+
+- title: Gevoelstemperatuur
+  area: Plantagebuurt
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bceeb4bf9619a0ebc0bcd3e/1540287338572/Hannes-heg.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/gevoelstemp
+  coordinates: [52.367380, 4.907884]
+
+- title: Grens
+  area: Diemerbos
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bceebc50852291cf3d98e30/1540287452353/OvergangDiemerbos.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/grens
+  coordinates: [52.334154, 4.979446]
