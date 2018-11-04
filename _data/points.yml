@@ -239,3 +239,45 @@
   image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bceebc50852291cf3d98e30/1540287452353/OvergangDiemerbos.JPG?format=200w
   url: https://www.paradijsindepolder.nl/blog/2018/10/11/grens
   coordinates: [52.334154, 4.979446]
+
+- title: Opkomen voor bomen
+  area: Zuid-Oost
+  theme: boom
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bdc38991ae6cfa6938bc4fa/1541159105864/IMG_5806.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/opkomenvoorbomen
+  coordinates: [52.310337, 4.946661]
+
+- title: Slangen of groen
+  area: Zuid-Oost
+  theme: ontboezeming
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bdc3b990ebbe8a4dd75186f/1541159838688/Surinaamse-amarant-.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/slangeninbosjes
+  coordinates: [52.314833, 4.961411]
+
+- title: Planten met een verleden
+  area: Plantagebuurt
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bdc4351b8a04549b1ed2273/1541161877573/2018-09-14_PiP_Amsterdam_AB161AritaB.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/plantenstad
+  coordinates: [52.365454, 4.906039]
+
+- title: Thuisgevoel
+  area: Entrepotdok
+  theme: ontboezeming
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bdc41dd352f53656b8bc5c4/1541161479763/%40paradijsindepolder-illustratie.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/thuisgevoel
+  coordinates: [52.367236, 4.922744]
+
+- title: Suriname en Amsterdam
+  area: Oost
+  theme: overig
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bdc1e62562fa7a77803a46b/1541152525803/2018-09-14_PiP_Amsterdam_AB184AritaB.JPG?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/surinameamsterdam
+  coordinates: [52.366063, 4.928011]
+
+- title: Luisteren naar de stad
+  area: Plantagebuurt
+  theme: aha
+  image: https://static1.squarespace.com/static/5a54d475fe54efb29c7b0870/t/5bdc1cdbaa4a99dca82fbbab/1541151981378/Soundwaves_by_welshdragon-720x320.jpg?format=200w
+  url: https://www.paradijsindepolder.nl/blog/2018/10/11/luisterennaardestad
+  coordinates: [52.366936, 4.909094]
