@@ -2,6 +2,11 @@ if (!mapboxgl.supported()) {
   alert('Your browser does not support Mapbox GL')
 }
 
+var myStyles = [
+  '../style/style.json',
+  '../style/style_data.json'
+];
+
 var FPS = 16
 var animationDuration = 20000
 var maxDistance = 1200
@@ -9,7 +14,7 @@ var animationWait = 500 // wait with playing animation after loading map, in mil
 
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'style/style.json',
+  style: myStyles[0],
   center: [
     4.90706,
     52.35663
@@ -21,6 +26,25 @@ var map = new mapboxgl.Map({
   maxZoom: 17,
   hash: true
 })
+
+
+//switch between styles
+var click = 0;
+document.getElementById('switch').addEventListener('click', switchStyle);
+function switchStyle() {
+  if (click < (myStyles.length - 1)) {
+    click += 1;
+    map.removeLayer("geojson");
+    map.removeLayer("geojson-shadow");
+
+    map.setStyle(myStyles[click], { diff: true });
+
+  } else {
+    click = 0;
+    map.setStyle(myStyles[click], { diff: true });
+  };
+};
+
 
 function createPopupHtml (feature) {
   var properties = feature.properties
@@ -267,3 +291,8 @@ function segmentize (geojson, segmentLength) {
     features
   }
 }
+
+
+
+
+
