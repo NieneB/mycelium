@@ -3,8 +3,8 @@ if (!mapboxgl.supported()) {
 }
 
 var myStyles = [
-  '../style/style.json',
-  '../style/style_data.json'
+  'style/style.json',
+  'style/style_data.json'
 ];
 
 var FPS = 16
