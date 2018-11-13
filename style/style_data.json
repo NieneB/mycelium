@@ -20,6 +20,10 @@
     "areas": {
       "type": "geojson",
       "data": "http://localhost:4000/geojson/areas.geojson" 
+    },
+    "geojson": {
+        "type": "geojson",
+        "data": "http://localhost:4000/geojson/mycelium.geojson"
     }
   },
   "layers": [
@@ -27,78 +31,7 @@
       "id": "background",
       "type": "background",
       "paint": {
-        "background-pattern": "ruitjes_1"
-      }
-    },
-    {
-      "id": "terrein",
-      "source": "pdok",
-      "source-layer": "terrain",
-      "type": "symbol",
-      "minzoom": 11,
-      "maxzoom": 22,
-      "filter": [
-        "all",
-        [
-          "in",
-          "lod1",
-          "natural"
-        ],
-        [
-          "!=",
-          "lod2",
-          "agriculture"
-        ],
-        [
-          "!=",
-          "lod2",
-          "open"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible",
-        "icon-image": "circle_landscape",
-        "icon-size": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          11,
-          0,
-          12,
-          0.3,
-          14,
-          0.9,
-          15,
-          1,
-          16,
-          1.5,
-          20,
-          2
-        ],
-        "icon-allow-overlap": true,
-        "icon-rotate": [
-          "match",
-          [
-            "get",
-            "lod2"
-          ],
-          "high_vegetation",
-          10,
-          "low_vegetation",
-          230,
-          "open",
-          300,
-          45
-        ],
-        "icon-rotation-alignment": "map",
-        "icon-pitch-alignment": "map"
-      },
-      "paint": {
-        "icon-opacity": 0.3
+        "background-color": "#474747"
       }
     },
     {
@@ -110,43 +43,8 @@
       "paint": {
         "circle-pitch-scale": "map",
         "circle-pitch-alignment": "map",
-        "circle-color": "#553333",
-        "circle-radius": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          8,
-          20,
-          12,
-          150,
-          13,
-          200,
-          14,
-          250,
-          15,
-          550,
-          16,
-          1000
-        ],
-        "circle-opacity": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          10,
-          0.4,
-          11,
-          0.2,
-          12,
-          0.1
-        ]
+        "circle-color": "#ff4d99",
+        "circle-radius":3
       }
     },
     {
@@ -159,53 +57,42 @@
         "lod1",
         "natural"
       ],
-      "minzoom": 13,
+      "minzoom": 8,
       "maxzoom": 22,
       "layout": {
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#ffffff",
-        "line-width": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          12,
-          0,
-          13,
-          0.5,
-          13.5,
-          0.8,
-          14,
-          1.1,
-          15,
-          1.7,
-          17,
-          2
-        ],
-        "line-blur": 1,
-        "line-offset": 0,
-        "line-opacity": 0.7
+        "line-color": "#f9e11e"
       }
     },
     {
       "id": "water",
       "source": "pdok",
       "source-layer": "water",
-      "type": "fill",
+      "type": "line",
       "minzoom": 0,
       "maxzoom": 22,
       "layout": {
         "visibility": "visible"
       },
       "paint": {
-        "fill-pattern": "water",
-        "fill-opacity": 1
+        "line-color": "#80bde3"
       }
+    },
+    {
+        "id": "geojson2",
+        "type": "line",
+        "source": "geojson",
+        "minzoom": 10,
+        "maxzoom": 22,
+        "layout": {
+          "line-join": "round",
+          "line-cap": "round"
+        },
+        "paint": {
+          "line-color": "#ee0000"
+        }
     },
     {
       "id": "punten",
