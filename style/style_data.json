@@ -4,7 +4,7 @@
   "version": 8,
   "name": "data",
   "glyphs": "https://ta.webmapper.nl/stb/achtergrond/glyphs/{fontstack}/{range}.pbf",
-  "sprite": "http://localhost:4000/sprite/sprite",  
+  "sprite": "{{ "/sprite/sprite"  | absolute_url }}",  
   "sources": {
     "pdok": {
       "type": "vector",
@@ -15,15 +15,15 @@
     },
     "punten": {
       "type": "geojson",
-      "data": "http://localhost:4000/geojson/points_niene.geojson" 
+      "data": "{{ "/geojson/points.geojson" | absolute_url }}" 
     },
     "areas": {
       "type": "geojson",
-      "data": "http://localhost:4000/geojson/areas.geojson" 
+      "data": "{{ "/geojson/areas.geojson" | absolute_url }}" 
     },
     "geojson": {
         "type": "geojson",
-        "data": "http://localhost:4000/geojson/mycelium.geojson"
+        "data": "{{ "/geojson/mycelium.geojson" | absolute_url }}"
     }
   },
   "layers": [
